@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { VscComment, VscPreview, VscProject, VscRepo, VscSearch, VscTable, VscTools, VscVerified } from 'react-icons/vsc';
 import { useRouter } from 'next/router';
-import { RouterEnums } from '../../lib';
+import { NavContext, RouterEnums } from '../../lib';
 
-interface ISidebarProps {
-	activePage?: string;
-}
+interface ISidebarProps { }
 
-const Sidebar: React.FC<ISidebarProps> = ({
-	activePage,
-}) => {
+const Sidebar: React.FC<ISidebarProps> = ({ }) => {
 	const history = useRouter();
+  const { activePage, updateActivePageInContext } = useContext(NavContext);
+
+	const handleNavigation = (route: RouterEnums) => {
+		updateActivePageInContext(route);
+		history.push(route);
+	};
   
 	return (
 		<div className="w-2/12 bg-white rounded p-3 shadow-lg">
 			<div
 				className="flex items-center space-x-4 p-2 mb-5 cursor-pointer"
 				onClick={() => {
-					history.push(RouterEnums.SETTINGS);
+					handleNavigation(RouterEnums.SETTINGS);
 				}}
 			>
 				<img className="h-12 rounded-full" alt={''} src={'https://lh3.googleusercontent.com/ogw/ADea4I6VLmj2JDCRaAILO3eM5-cHw-4PbQZkJMCwTj6a=s64-c-mo'} />
@@ -29,7 +31,7 @@ const Sidebar: React.FC<ISidebarProps> = ({
 			<ul className="space-y-2 text-sm">
 				<li
 					onClick={() => {
-						history.push(RouterEnums.HOME);
+						handleNavigation(RouterEnums.HOME);
 					}}
 					className={'cursor-pointer'}
 				>
@@ -40,7 +42,7 @@ const Sidebar: React.FC<ISidebarProps> = ({
 				</li>
 				<li
 					onClick={() => {
-						history.push(RouterEnums.SESSIONS);
+						handleNavigation(RouterEnums.SESSIONS);
 					}}
 					className={'cursor-pointer'}
 				>
@@ -51,7 +53,7 @@ const Sidebar: React.FC<ISidebarProps> = ({
 				</li>
 				<li
 					onClick={() => {
-						history.push(RouterEnums.CHAT);
+						handleNavigation(RouterEnums.CHAT);
 					}}
 					className={'cursor-pointer'}
 				>
@@ -62,7 +64,7 @@ const Sidebar: React.FC<ISidebarProps> = ({
 				</li>
 				<li
 					onClick={() => {
-						history.push(RouterEnums.CONTRACTS);
+						handleNavigation(RouterEnums.CONTRACTS);
 					}}
 					className={'cursor-pointer'}
 				>
@@ -73,7 +75,7 @@ const Sidebar: React.FC<ISidebarProps> = ({
 				</li>
 				<li
 					onClick={() => {
-						history.push(RouterEnums.EXPLORE);
+						handleNavigation(RouterEnums.EXPLORE);
 					}}
 					className={'cursor-pointer'}
 				>
@@ -84,7 +86,7 @@ const Sidebar: React.FC<ISidebarProps> = ({
 				</li>
 				<li
 					onClick={() => {
-						history.push(RouterEnums.ARTICLES);
+						handleNavigation(RouterEnums.ARTICLES);
 					}}
 					className={'cursor-pointer'}
 				>
@@ -95,7 +97,7 @@ const Sidebar: React.FC<ISidebarProps> = ({
 				</li>
 				<li
 					onClick={() => {
-						history.push(RouterEnums.SETTINGS);
+						handleNavigation(RouterEnums.SETTINGS);
 					}}
 					className={'cursor-pointer'}
 				>
