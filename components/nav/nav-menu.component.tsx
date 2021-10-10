@@ -22,22 +22,6 @@ const NavMenu: React.FC<INavMenuProps> = ({
           <div className={`block mt-4 lg:inline-block lg:mt-0 text-teal-200 cursor-pointer ml-4 mr-4`}>
             <b>{route ?? ''}</b>
           </div>
-          {((activePage === RouterEnums.JOBS || activePage === RouterEnums.CREATE_JOB) && 
-            <div
-              className={`${(activePage === RouterEnums.CREATE_JOB) ? 'active' : ''} block mt-4 lg:inline-block lg:mt-0 text-teal-200 cursor-pointer`}
-              onClick={() => {
-                // updateActivePageInContext(RouterEnums.CREATE_JOB);
-                history.push(RouterEnums.CREATE_JOB)
-              }}
-            >
-              <button
-                className={'bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded'}
-              >
-                <VscBriefcase className={'inline mr-2'} />
-                Create a Job
-              </button>
-            </div>
-          )}
         </div>
       </div>
     </nav>

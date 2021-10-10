@@ -17,7 +17,7 @@ const Sidebar: React.FC<ISidebarProps> = ({
 			<div
 				className="flex items-center space-x-4 p-2 mb-5 cursor-pointer"
 				onClick={() => {
-					history.push(RouterEnums.PROFILE.replace('{slug}', ''));
+					history.push(RouterEnums.SETTINGS);
 				}}
 			>
 				<img className="h-12 rounded-full" alt={''} src={'https://lh3.googleusercontent.com/ogw/ADea4I6VLmj2JDCRaAILO3eM5-cHw-4PbQZkJMCwTj6a=s64-c-mo'} />
@@ -39,57 +39,63 @@ const Sidebar: React.FC<ISidebarProps> = ({
 					</div>
 				</li>
 				<li
+					onClick={() => {
+						history.push(RouterEnums.SESSIONS);
+					}}
 					className={'cursor-pointer'}
 				>
-					<div className={`${activePage === 'notifications' && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
+					<div className={`${activePage === RouterEnums.SESSIONS && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
 						<VscTable className="text-gray-600 ml-1" />
 						<span>Sessions</span>
 					</div>
 				</li>
 				<li
+					onClick={() => {
+						history.push(RouterEnums.CHAT);
+					}}
 					className={'cursor-pointer'}
 				>
-					<div className={`${activePage === 'notifications' && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
+					<div className={`${activePage === RouterEnums.CHAT && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
 						<VscComment className="text-gray-600 ml-1" />
 						<span>Chat</span>
 					</div>
 				</li>
 				<li
 					onClick={() => {
-						history.push(RouterEnums.PROFILE.replace('{slug}', ''));
+						history.push(RouterEnums.CONTRACTS);
 					}}
 					className={'cursor-pointer'}
 				>
-					<div className={`${activePage === RouterEnums.PROFILE && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
+					<div className={`${activePage === RouterEnums.CONTRACTS && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
 						<VscRepo className="text-gray-600 ml-1" />
 						<span>Contracts</span>
 					</div>
 				</li>
 				<li
 					onClick={() => {
-						history.push(RouterEnums.JOBS);
+						history.push(RouterEnums.EXPLORE);
 					}}
 					className={'cursor-pointer'}
 				>
-					<div className={`${activePage === RouterEnums.JOBS && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
+					<div className={`${activePage === RouterEnums.EXPLORE && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
 						<VscSearch className="text-gray-600 ml-1" />
 						<span>Explore</span>
 					</div>
 				</li>
 				<li
 					onClick={() => {
-						history.push(RouterEnums.APPLICATIONS);
+						history.push(RouterEnums.ARTICLES);
 					}}
 					className={'cursor-pointer'}
 				>
-					<div className={`${activePage === RouterEnums.APPLICATIONS && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
+					<div className={`${activePage === RouterEnums.ARTICLES && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
 						<VscPreview className="text-gray-600 ml-1" />
 						<span>Articles</span>
 					</div>
 				</li>
 				<li
 					onClick={() => {
-						history.push(RouterEnums.PROFILE.replace('{slug}', ''));
+						history.push(RouterEnums.SETTINGS);
 					}}
 					className={'cursor-pointer'}
 				>

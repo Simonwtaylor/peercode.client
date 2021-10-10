@@ -14,7 +14,9 @@ const Layout: React.FC = ({ children }) => {
 			<Sidebar />
 			<div className={'w-10/12 flex flex-col'}>
 				<NavMenu />
-				{children}
+				<div className={'p-5 text-white'}>
+					{children}
+				</div>
 			</div>
 		</div>
 	);
