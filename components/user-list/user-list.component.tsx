@@ -1,4 +1,6 @@
+import { useRouter } from 'next/router';
 import React from 'react'
+import { RouterEnums } from '../../lib';
  
 export interface IUserListProps {
   users: any[];
@@ -7,13 +9,16 @@ export interface IUserListProps {
 const UserList: React.FC<IUserListProps> = ({
   users,
 }) => {
+  const router = useRouter();
   return (
     <>
-      {users.map((a) => {
+      {users.map(({ ID, Username }) => {
         return (
-          <>
-            {a.Username}
-          </>
+          <div
+            onClick={() => router.push(RouterEnums.USER.replace('{slug}', ID))}
+          >
+            {Username}
+          </div>
         )
       })}
     </>
