@@ -15,6 +15,7 @@ const UserList: React.FC<IUserListProps> = ({
       {users.map(({ ID, Username }) => {
         return (
           <div
+            style={{ cursor: 'pointer' }}
             onClick={() => router.push(RouterEnums.USER.replace('{slug}', ID))}
           >
             {Username}
