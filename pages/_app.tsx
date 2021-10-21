@@ -1,20 +1,17 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
-import { ReactQueryDevtools } from 'react-query/devtools'
 import { NavContextProvider } from '../lib';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import React from 'react';
-
-const queryClient = new QueryClient();
+import { ApolloProvider } from '@apollo/client';
+import client from '../apollo-client';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <NavContextProvider>
-        <Component {...pageProps} />
-        <ReactQueryDevtools initialIsOpen={false} />
-      </NavContextProvider>
-    </QueryClientProvider>
+    <ApolloProvider client={client}>
+        <NavContextProvider>
+          <Component {...pageProps} />
+        </NavContextProvider>
+    </ApolloProvider>
   );
 }
 export default MyApp;

@@ -1,25 +1,31 @@
+import { useQuery } from '@apollo/client';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { VscGithubAlt, VscTwitter, VscGlobe } from 'react-icons/vsc';
 import Layout from '../../components/hoc/with-layout.component';
-import { useGetUser } from '../../lib/queries/';
+import { getUserQuery } from '../../lib/queries/';
 
 export interface IUserPageProps {
 
 }
 
 const UserPage: React.FC<IUserPageProps> = () => {
-  const { id } = useRouter().query;
-  const { isLoading, isError, error, data } = useGetUser(id as string);
+  const router = useRouter();
+  const { loading, error, data } = useQuery(getUserQuery, {
+    variables: {
+      id: +(router.query?.id as string ?? '') ?? 0,
+    }
+  });
 
-  if (isLoading) {
+  if (loading) {
     return <>Loading...</>;
   }
 
-  if (isError) {
+  if (error) {
     return <>{error}</>;
   }
 
-  const { Username, Email } = data;
+  const { username, email } = data?.user;
 
   return (
     <Layout>
@@ -38,26 +44,19 @@ const UserPage: React.FC<IUserPageProps> = () => {
                 <div>
                   <div style={{ marginTop: '15px', marginLeft: '10px' }}>
                     <div className={'text-3xl'}>
-                      {Username}
+                      {username}
                     </div>
                     <div className={'text-lg'}>
-                      {Email}
+                      {email}
                     </div>
                     <div className={'text-xl'}>
                       {''}
                     </div>
-                    {/* <div className={'my-4'}>
-                      <button
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                      >
-                        Deactivate
-                      </button>
-                    </div> */}
+                    <div className={'my-4 text-xl flex'}>
+                      <VscGithubAlt className="text-white" />
+                      <VscGlobe className="text-white" />
+                      <VscTwitter className="text-white" />
+                    </div>
                   </div>
                 </div>
               </div>

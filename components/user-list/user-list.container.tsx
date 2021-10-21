@@ -1,23 +1,24 @@
+import { useQuery } from '@apollo/client';
 import React from 'react';
 import { UserList } from '.';
-import { useGetUsers } from '../../lib/queries/user/get-users.query';
+import { getUsersQuery, IUsersResponse } from '../../lib';
 
 export interface IUserListContainerProps {
 
 }
 
 const UserListContainer: React.FC<IUserListContainerProps> = () => {
-  const { isLoading, isError, error, data } = useGetUsers();
+  const { data, loading, error } = useQuery<IUsersResponse>(getUsersQuery);
 
-  if (isLoading) {
+  if (loading) {
     return <>Loading...</>;
   }
 
-  if (isError) {
+  if (error) {
     return <>{error}</>;
   }
 
-  return <UserList users={data ?? []} />;
+  return <UserList users={data?.users ?? []} />;
 };
  
 export default UserListContainer;

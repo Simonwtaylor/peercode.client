@@ -14,10 +14,12 @@ const UserSearchContainer: React.FC<IUserSearchContainerProps> = () => {
   };
 
   return (
-    <>
+    <div
+      className={'m-10'}
+    >
       <UserSearch value={searchText} onTextChange={handleSearchTextChange} />
       <UserListContainer />
-    </>
+    </div>
   );
 };
  
