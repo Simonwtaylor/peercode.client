@@ -15,7 +15,7 @@ const UserList: React.FC<IUserListProps> = ({
     <div
       className={'w-full grid grid-cols-2 gap-x-4'}
     >
-      {users.map(({ id, username, email }) => {
+      {users.map(({ id, username, email, role }) => {
         return (
           <div
             style={{ cursor: 'pointer' }}
@@ -41,7 +41,7 @@ const UserList: React.FC<IUserListProps> = ({
                         {email}
                       </div>
                       <div className={'text-base'}>
-                        {'Senior Software Engineer'}
+                        {role}
                       </div>
                       <div className={'my-4 text-2xl flex'}>
                         <VscGithubAlt className="text-white" />

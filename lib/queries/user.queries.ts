@@ -5,19 +5,40 @@ export const getUsersQuery = gql`
     users {
       id
       username
-      email
       uid
+      email
+      role
+      website
+      twitter
+      github
+      bio
+      mentor
+  }
+}
+`;
+
+export const getUserQuery = gql`
+query user($id: Int!) {
+  user(id: $id) {
+      id
+      username
+      uid
+      email
+      role
+      website
+      twitter
+      github
+      bio
+      mentor
     }
   }
 `;
 
-export const getUserQuery = gql`
-  query user($id: Int!) {
-    user(id: $id) {
+export const getUserBioQuery = gql`
+query user($id: Int!) {
+  user(id: $id) {
       id
-      username
-      email
-      uid
+      bio
     }
   }
 `;

@@ -101,7 +101,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ }) => {
 					}}
 					className={'cursor-pointer'}
 				>
-					<div className={'flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline'}>
+					<div className={`${activePage === RouterEnums.SETTINGS && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
 						<VscTools className="text-gray-600 ml-1" />
 						<span>Settings</span>
 					</div>
