@@ -39,8 +39,6 @@ const BioCardContainer: React.FC<IBioCardContainerProps> = ({
       refetchQueries: [getUserBioQuery],
     });
   };
-
-  console.log(data);
   
   return (
     <BioCard onBioEditSave={handleUpdateUserBio} bio={data?.user?.bio ?? ''} editable={editable} />

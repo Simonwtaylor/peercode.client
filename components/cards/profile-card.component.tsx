@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { VscGithubAlt, VscTwitter, VscGlobe, VscVerified, VscBook, VscEdit, VscSave, VscCircleSlash } from 'react-icons/vsc';
+import { CheckboxInput, TextInput } from '../inputs';
 
 export interface IUserProfileProps {
   username: string;
@@ -25,6 +26,14 @@ const ProfileCard: React.FC<IProfileCardProps> = ({
   const [mode, setMode] = useState<'view'|'edit'>('view');
   const { username, email, role, mentor, twitter, github, website } = data;
 
+  const [editUsername, setEditUsername] = useState(username);
+  const [editEmail, setEditEmail] = useState(email);
+  const [editRole, setEditRole] = useState(role);
+  const [editMentor, setEditMentor] = useState(mentor);
+  const [editTwitter, setEditTwitter] = useState(twitter);
+  const [editGithub, setEditGithub] = useState(github);
+  const [editWebsite, setEditWebsite] = useState(website);
+
   const getMentor = () => {
     if (mentor) {
       return <><VscVerified className={'text-white text-lg mr-2 mt-1'} /> Mentor</>;
@@ -37,7 +46,22 @@ const ProfileCard: React.FC<IProfileCardProps> = ({
     if (mode === 'edit') {
       return (
         <>
-          <button className={'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2'}>
+          <button
+            onClick={() => {
+              onProfileEditSave({ 
+                username: editUsername,
+                email: editEmail,
+                role: editRole,
+                mentor: editMentor,
+                twitter: editTwitter,
+                github: editGithub,
+                website: editWebsite,
+              });
+
+              setMode('view');
+            }}
+            className={'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2'}
+          >
             <VscSave className="text-white m4-1 inline" /> Save
           </button>
           <button onClick={() => setMode('view')} className={'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2'}>
@@ -99,7 +123,42 @@ const ProfileCard: React.FC<IProfileCardProps> = ({
   }
 
   if (mode === 'edit') {
-    return <></>;
+    return (
+      <div className={'flex flex-col w-1/2 my-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
+        <div className={'grid grid-cols-2 p-4'}>
+          <div className={''}>
+            <TextInput onChange={setEditUsername} value={editUsername} label={'Username'} />
+          </div>
+          <div className={''}>
+            <TextInput onChange={setEditEmail} value={editEmail} label={'Email'} />
+          </div>
+          <div className={''}>
+            <TextInput onChange={setEditRole} value={editRole} label={'Role'} />
+          </div>
+          <div className={''}>
+            <TextInput onChange={setEditWebsite} value={editWebsite} label={'Website'} />
+          </div>
+          <div className={''}>
+            <TextInput onChange={setEditGithub} value={editGithub} label={'Github'} />
+          </div>
+          <div className={''}>
+            <TextInput onChange={setEditTwitter} value={editTwitter} label={'Twitter'} />
+          </div>
+          <div className={''}>
+            <CheckboxInput onChange={setEditMentor} value={editMentor} label={'Mentor'} />
+          </div>
+          {editable && <div className={'my-4'}>
+            {getEditButton()}
+          </div>}
+        </div>
+        <div className={'bg-blue-500 w-full flex p-2 flex-row text-xl'}>
+          <div className={'flex w-full'}>
+            <VscEdit className={'m-1'} />
+            Currently editing 
+          </div>
+        </div>
+      </div>
+    );
   }
   return (
     <></>

@@ -1,6 +1,6 @@
-import { useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import React from 'react';
-import { getUserQuery, IUserResponse } from '../../lib';
+import { getUserQuery, IUserResponse, updateUserMutation } from '../../lib';
 import ProfileCard, { IUserProfileProps } from './profile-card.component';
  
 export interface IProfileCardContainerProps {
@@ -18,11 +18,20 @@ const ProfileCardContainer: React.FC<IProfileCardContainerProps> = ({
     },
   });
 
-  const handleProfileSave = (newProfile: IUserProfileProps) => {
+  const [updateUser] = useMutation(updateUserMutation);
 
+  const handleProfileSave = (newProfile: IUserProfileProps) => {
+    updateUser({
+      variables: {
+        user: {
+          ...data?.user,
+          ...newProfile,
+        },
+      },
+      refetchQueries: [getUserQuery],
+    });
   };
 
-  // const [updateUserBio] = useMutation(updateUserBioMutation);
 
   if (loading) {
     return <>Loading...</>;
