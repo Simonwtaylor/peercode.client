@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { BioCardContainer } from '../components/cards';
+import { BioCardContainer, SkillsCardContainer } from '../components/cards';
 import ProfileCardContainer from '../components/cards/profile-card.container';
 import Layout from '../components/hoc/with-layout.component';
 import { NavContext } from '../lib';
@@ -22,7 +22,7 @@ const SettingsPage: React.FC<ISettingsPageProps> = () => {
                 Skills  
               </div>
               <div className={'text-base'}>
-              
+                <SkillsCardContainer userId={userId} />
               </div>
             </div>
           </div>
