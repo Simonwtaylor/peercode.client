@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.4.16",
+    "dayjs": "^1.10.7",
     "graphql": "^15.6.1",
     "next": "11.1.2",
     "react": "17.0.2",
