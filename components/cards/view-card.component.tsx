@@ -15,8 +15,8 @@ const ViewCard: React.FC<IViewCardProps> = ({
   onEditClick,
 }) => {
   return (
-    <div className={'flex w-1/2 my-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
-      <div className={'flex-auto p-6'}>
+    <div className={'flex w-2/3 my-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
+      <div className={'flex-auto p-4'}>
         <div className={'my-1'}>
           <div className={'text-xl font-bold my-2'}>
             {label}

@@ -15,3 +15,14 @@ query getUserSkills($id: Int!) {
   }
 }
 `;
+
+export const getRemainingSkillsForUserQuery = gql`
+query getRemainingSkillsForUser($id: Int!) {
+  getRemainingSkillsForUser(id: $id) {
+      id
+      name
+      colour
+      iconPath
+  }
+}
+`;

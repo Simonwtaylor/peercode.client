@@ -2,6 +2,10 @@ export interface IUserSkillsResponse {
   getUserSkills: IUserSkill[];
 }
 
+export interface IGetRemainingSkillsForUserResponse {
+  getRemainingSkillsForUser: ISkill[];
+}
+
 export interface IUserSkill {
   id: number;
   yearsExperience: number;
