@@ -52,9 +52,7 @@ const BioCard: React.FC<IBioCardProps> = ({
     )
   }
   return (
-    <>
-      BioCard Works!
-    </>
+    <></>
   );
 };
  
