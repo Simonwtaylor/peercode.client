@@ -3,12 +3,8 @@ import React from 'react';
 import ContractSummaryCard from './contract-summary-card.component';
 import { useQuery } from '@apollo/client';
 import { getContractQuery, IContractResponse } from '../../../lib';
- 
-export interface IContractSummaryCardContainerProps {
- 
-}
 
-const ContractSummaryCardContainer: React.FC<IContractSummaryCardContainerProps> = () => {
+const ContractSummaryCardContainer: React.FC = () => {
   const router = useRouter();
 
   const { data, loading, error } = useQuery<IContractResponse>(getContractQuery, {

@@ -3,11 +3,7 @@ import React from 'react';
 import { UserList } from '.';
 import { getUsersQuery, IUsersResponse } from '../../lib';
 
-export interface IUserListContainerProps {
-
-}
-
-const UserListContainer: React.FC<IUserListContainerProps> = () => {
+const UserListContainer: React.FC = () => {
   const { data, loading, error } = useQuery<IUsersResponse>(getUsersQuery);
 
   if (loading) {

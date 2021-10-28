@@ -11,7 +11,13 @@ const ContractList: React.FC<IContractListProps> = ({
 }) => {
 
   const buildContractCards = () => {
-    return contracts.map((contract) => (<ContractSummaryCard contract={contract} clickable={true} />));
+    return contracts.map((contract) => (
+      <ContractSummaryCard
+        key={`contractsummary${contract.id}`}
+        contract={contract}
+        clickable={true}
+      />
+    ));
   };
 
   return (

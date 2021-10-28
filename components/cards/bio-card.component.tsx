@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { VscCircleSlash, VscSave } from 'react-icons/vsc';
 import { ViewCard } from '.';
 import { Button } from '..';
@@ -19,8 +19,13 @@ const BioCard: React.FC<IBioCardProps> = ({
 
   if (mode === 'view') {
     return (
-      <ViewCard label={'Bio'} value={bio} editable={editable} onEditClick={() => setMode('edit')} />
-    )
+      <ViewCard
+        label={'Bio'}
+        value={bio}
+        editable={editable}
+        onEditClick={() => setMode('edit')}
+      />
+    );
   }
 
   if (mode === 'edit') {
@@ -54,7 +59,7 @@ const BioCard: React.FC<IBioCardProps> = ({
           </div>
         </div>
       </div>
-    )
+    );
   }
   return (
     <></>

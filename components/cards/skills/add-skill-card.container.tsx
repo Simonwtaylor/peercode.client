@@ -1,5 +1,5 @@
 import { useMutation } from '@apollo/client';
-import React from 'react'
+import React from 'react';
 import {
   addUserSkillMutation,
   getRemainingSkillsForUserQuery,

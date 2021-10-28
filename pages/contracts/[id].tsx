@@ -2,11 +2,7 @@ import React from 'react';
 import { VscAdd, VscCloudUpload } from 'react-icons/vsc';
 import { ContractSummaryCardContainer, Layout } from '../../components/';
 
-export interface IContractPageProps {
-
-}
-
-const ContractPage: React.FC<IContractPageProps> = () => {
+const ContractPage: React.FC = () => {
   return (
     <Layout>
       <div className={'w-full items-center content-center justify-items-center place-items-center m-2 p-2 grid'}>

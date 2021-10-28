@@ -24,7 +24,7 @@ const SkillsSection: React.FC<ISkillsSectionProps> = ({
     }
 
     return <VscCircleSlash className={'inline float-right cursor-pointer'} onClick={() => setMode('view')} />;
-  }
+  };
 
   return (
     <div className={'flex w-2/3 my-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>

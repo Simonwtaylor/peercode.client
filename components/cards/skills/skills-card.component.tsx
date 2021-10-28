@@ -25,6 +25,7 @@ const SkillCards: React.FC<ISkillCardsProps> = ({
   const mapSkills = () => {
     return skills.map(({ id, skill, yearsExperience }) => 
       <div
+        key={`skillscard${id}`}
         className={`tracking-wider text-white bg-${skill.colour}-700 px-2 text-sm rounded leading-loose font-semibold`}
       >
         {skill.name} - {getYearsText(yearsExperience)}

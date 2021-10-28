@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { VscSave } from 'react-icons/vsc';
 import Button from '../../buttons/button.component';
 import { SkillsDropdown } from '../../dropdowns';

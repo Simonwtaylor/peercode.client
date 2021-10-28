@@ -18,7 +18,7 @@ const UserList: React.FC<IUserListProps> = ({
       {users.map(({ id, username, email, role }) => {
         return (
           <div
-            style={{ cursor: 'pointer' }}
+            key={`userlistitem${id}`}
             onClick={() => router.push(RouterEnums.USER.replace('{slug}', `${id}`))}
             className={'flex my-4 rounded border-solid border-2 border-transparent overflow-hidden shadow-sm text-white card-dark-lighter-background cursor-pointer hover:shadow-2xl hover:border-blue-900'}
           >
@@ -54,7 +54,7 @@ const UserList: React.FC<IUserListProps> = ({
               </div>
             </div>
           </div>
-        )
+        );
       })}
     </div>
   );

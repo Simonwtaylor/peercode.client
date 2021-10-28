@@ -1,5 +1,5 @@
-import { ISkill } from "./skill.types";
-import { IUser } from "./user.types";
+import { ISkill } from './skill.types';
+import { IUser } from './user.types';
 
 export interface IContractStatus {
   id: number;

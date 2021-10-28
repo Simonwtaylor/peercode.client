@@ -2,12 +2,8 @@ import React, { useContext } from 'react';
 import { Layout } from '../components/';
 import { ContractListContainer } from '../components/cards/contracts';
 import { NavContext } from '../lib';
- 
-export interface IContractsPageProps {
 
-}
-
-const ContractsPage: React.FC<IContractsPageProps> = () => {
+const ContractsPage: React.FC = () => {
   const { userId } = useContext(NavContext);
 
   return (

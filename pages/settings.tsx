@@ -5,11 +5,7 @@ import SkillsSection from '../components/cards/skills/skills-section.component';
 import Layout from '../components/hoc/with-layout.component';
 import { NavContext } from '../lib';
 
-export interface ISettingsPageProps {
-
-}
-
-const SettingsPage: React.FC<ISettingsPageProps> = () => {
+const SettingsPage: React.FC = () => {
   const { userId } = useContext(NavContext);
 
   return (

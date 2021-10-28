@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import { VscBell, VscBellDot, VscFlame, VscRocket, VscSymbolEvent } from 'react-icons/vsc';
+import { VscBellDot, VscFlame, VscRocket, VscSymbolEvent } from 'react-icons/vsc';
 import { IContract, RouterEnums } from '../../../lib';
  
 export interface IContractSummaryCardProps {
@@ -40,7 +40,7 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
             {dateRange}
           </div>
         </div>
-      )
+      );
     }
 
     if (status === 'active') {
@@ -80,7 +80,7 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
         <div className={'w-full'}>
           <div className={'text-xl font-bold my-2'}>
             {name}
-            <span className={"float-right"}>{(1 > 0) ? <VscBellDot /> : <VscBell />}</span>
+            <span className={'float-right'}><VscBellDot /></span>
           </div>
           <div className={'flex'}>
             <div className="flex-none w-2/12 relative">

@@ -7,11 +7,7 @@ import {
   Layout,
 } from '../../components/';
 
-export interface IUserPageProps {
-
-}
-
-const UserPage: React.FC<IUserPageProps> = () => {
+const UserPage: React.FC = () => {
   const router = useRouter();
   const id = +(router.query?.id as string ?? '') ?? 0;
 

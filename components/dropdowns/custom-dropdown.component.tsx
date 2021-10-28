@@ -21,7 +21,7 @@ const CustomDropdown: React.FC<ICustomDropdownProps> = ({
 }) => {
 
   const buildOptions = (): ReactNode[] => {
-    return data.map(({ key, id, text }) => <option key={key} value={id}>{text}</option>)
+    return data.map(({ key, id, text }) => <option key={key} value={id}>{text}</option>);
   };
 
   return (
@@ -33,7 +33,7 @@ const CustomDropdown: React.FC<ICustomDropdownProps> = ({
       placeholder={'---Please select---'}
       disabled={disabled}
     >
-      <option unselectable={"on"}>Please Select an option</option>
+      <option unselectable={'on'}>Please Select an option</option>
       {buildOptions()}
     </select>
   );
