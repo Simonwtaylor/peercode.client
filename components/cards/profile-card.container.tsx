@@ -4,17 +4,17 @@ import { getUserQuery, IUserResponse, updateUserMutation } from '../../lib';
 import ProfileCard, { IUserProfileProps } from './profile-card.component';
  
 export interface IProfileCardContainerProps {
-  id: number;
+  userId: number;
   editable: boolean;
 }
 
 const ProfileCardContainer: React.FC<IProfileCardContainerProps> = ({
   editable,
-  id,
+  userId,
 }) => {
   const { data, loading, error } = useQuery<IUserResponse>(getUserQuery, {
     variables: {
-      id,
+      id: userId,
     },
   });
 

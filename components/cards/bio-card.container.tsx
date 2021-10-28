@@ -1,20 +1,20 @@
+import React from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import React from 'react'
 import { getUserBioQuery, IUserBioResponse, updateUserBioMutation } from '../../lib';
 import BioCard from './bio-card.component';
  
 export interface IBioCardContainerProps {
-  id: number;
+  userId: number;
   editable: boolean;
 }
  
 const BioCardContainer: React.FC<IBioCardContainerProps> = ({
-  id,
+  userId,
   editable,
 }) => {
   const { data, loading, error } = useQuery<IUserBioResponse>(getUserBioQuery, {
     variables: {
-      id,
+      id: userId,
     },
   });
 
@@ -28,12 +28,12 @@ const BioCardContainer: React.FC<IBioCardContainerProps> = ({
     return <>{error}</>;
   }
 
-  const handleUpdateUserBio = (newBio: string) => {
+  const handleUpdateUserBio = (bio: string) => {
     updateUserBio({
       variables: {
         user: {
-          id,
-          bio: newBio,
+          id: userId,
+          bio,
         },
       },
       refetchQueries: [getUserBioQuery],
@@ -44,5 +44,5 @@ const BioCardContainer: React.FC<IBioCardContainerProps> = ({
     <BioCard onBioEditSave={handleUpdateUserBio} bio={data?.user?.bio ?? ''} editable={editable} />
   );
 };
- 
+
 export default BioCardContainer;

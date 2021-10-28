@@ -13,7 +13,7 @@ const ContractsPage: React.FC<IContractsPageProps> = () => {
   return (
     <Layout>
       <div className={'w-full items-center content-center justify-items-center place-items-center m-2 p-2 grid'}>
-        <ContractListContainer />
+        <ContractListContainer userId={userId} />
       </div>
     </Layout>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { VscCircleSlash, VscEdit } from 'react-icons/vsc';
 import AddSkillCardContainer from './add-skill-card.container';
 import SkillsCardContainer from './skills-card.container';
@@ -37,7 +37,8 @@ const SkillsSection: React.FC<ISkillsSectionProps> = ({
           <div className={'text-base'}>
             <SkillsCardContainer userId={userId} editable={editable} />
           </div>
-          {(mode === 'edit' && <div>
+          {(mode === 'edit' && 
+            <div>
               <AddSkillCardContainer
                 userId={userId}
               />
@@ -48,5 +49,5 @@ const SkillsSection: React.FC<ISkillsSectionProps> = ({
     </div>
   );
 };
- 
+
 export default SkillsSection;

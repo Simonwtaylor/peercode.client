@@ -20,5 +20,5 @@ const UserListContainer: React.FC<IUserListContainerProps> = () => {
 
   return <UserList users={data?.users ?? []} />;
 };
- 
+
 export default UserListContainer;

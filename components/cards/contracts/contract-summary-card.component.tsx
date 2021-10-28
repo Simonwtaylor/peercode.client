@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 import { VscBell, VscBellDot, VscFlame, VscRocket, VscSymbolEvent } from 'react-icons/vsc';
-import { RouterEnums } from '../../../lib';
+import { IContract, RouterEnums } from '../../../lib';
  
 export interface IContractSummaryCardProps {
-  contract: any;
+  contract: IContract;
   clickable: boolean;
 }
  
@@ -14,10 +14,23 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
 }) => {
   const router = useRouter();
 
-  const { startDate, endDate, name, status, id, description, price, unreadNotifications } = contract;
+  const { startDate, endDate, name, status, id, description } = contract;
+
+  const getDateRange = () => {
+    let res = '';
+    if (startDate) {
+      res += `${startDate}`;
+    }
+
+    if (endDate) {
+      res += ` -> ${endDate}`;
+    }
+
+    return res;
+  };
 
   const getContractStatusBar = (status: string, dateRange: string) => {
-    if (status === 'proposal') {
+    if (status === 'Proposal') {
       return (
         <div className={'bg-purple-500 w-full flex p-4 flex-row text-xl'}>
           <div className={'flex w-1/2'}>
@@ -40,7 +53,7 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
             {dateRange}
           </div>
         </div>
-      )
+      );
     }
 
     if (status === 'completed') {
@@ -53,7 +66,7 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
             {dateRange}
           </div>
         </div>
-      )
+      );
     }
   };
 
@@ -67,7 +80,7 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
         <div className={'w-full'}>
           <div className={'text-xl font-bold my-2'}>
             {name}
-            <span className={"float-right"}>{(unreadNotifications.length > 0) ? <VscBellDot /> : <VscBell />}</span>
+            <span className={"float-right"}>{(1 > 0) ? <VscBellDot /> : <VscBell />}</span>
           </div>
           <div className={'flex'}>
             <div className="flex-none w-2/12 relative">
@@ -83,14 +96,14 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
                   {description}
                 </div>
                 <div className={'text-lg'}>
-                  <b>Total Value:</b> £{price/100}
+                  <b>Total Value:</b> £{10000/100}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      {getContractStatusBar(status, `${startDate} -> ${endDate}`)}
+      {getContractStatusBar(status.status, getDateRange())}
     </div>
   );
 };

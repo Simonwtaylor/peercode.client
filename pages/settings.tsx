@@ -15,9 +15,9 @@ const SettingsPage: React.FC<ISettingsPageProps> = () => {
   return (
     <Layout>
       <div className={'w-full items-center content-center justify-items-center place-items-center m-2 p-2 grid'}>
-        <ProfileCardContainer id={userId} editable={true} />
+        <ProfileCardContainer userId={userId} editable={true} />
         <SkillsSection userId={userId} editable={true} />
-        <BioCardContainer id={userId} editable={true} />
+        <BioCardContainer userId={userId} editable={true} />
         <div className={'flex w-2/3 my-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
           <div className={'flex-auto p-6'}>
             <div className={'my-1'}>

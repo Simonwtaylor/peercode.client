@@ -1,5 +1,5 @@
+import React from 'react';
 import { useQuery } from '@apollo/client';
-import React from 'react'
 import { CustomDropdown } from '.';
 import { getRemainingSkillsForUserQuery, IGetRemainingSkillsForUserResponse } from '../../lib';
  
@@ -35,7 +35,11 @@ const SkillsDropdown: React.FC<ISkillsDropdownProps> = ({
 
   return (
     <CustomDropdown
-      data={data?.getRemainingSkillsForUser?.map(({ id, name }) => ({ id, text: name, key: `skillsddl${id}` })) ?? []}
+      data={
+        data?.getRemainingSkillsForUser?.map(
+          ({ id, name }) => ({ id, text: name, key: `skillsddl${id}` }),
+        ) ?? []
+      }
       value={selectedItem}
       onSelect={onSelectSkill}
       disabled={disabled}

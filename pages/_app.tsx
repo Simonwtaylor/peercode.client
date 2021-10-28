@@ -8,9 +8,9 @@ import client from '../apollo-client';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
-        <NavContextProvider>
-          <Component {...pageProps} />
-        </NavContextProvider>
+      <NavContextProvider>
+        <Component {...pageProps} />
+      </NavContextProvider>
     </ApolloProvider>
   );
 }

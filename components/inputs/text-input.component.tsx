@@ -1,5 +1,5 @@
-import React from 'react'
- 
+import React from 'react';
+
 export interface ITextInputProps {
   label?: string;
   value?: string;
@@ -7,7 +7,7 @@ export interface ITextInputProps {
   classes?: string;
   type?: string;
 }
- 
+
 const TextInput: React.FC<ITextInputProps> = ({
   onChange,
   label,

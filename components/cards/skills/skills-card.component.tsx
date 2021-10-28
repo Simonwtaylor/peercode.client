@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 import { VscClose } from 'react-icons/vsc';
 import { IUserSkill } from '../../../lib';
- 
+
 export interface ISkillCardsProps {
   skills: IUserSkill[];
   editable?: boolean;
   onUserSkillRemove: (userSkillId: number) => void;
 }
- 
+
 const SkillCards: React.FC<ISkillCardsProps> = ({
   skills,
   editable,

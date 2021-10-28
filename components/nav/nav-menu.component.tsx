@@ -1,18 +1,15 @@
 import React, { useContext } from 'react';
 import { useRouter } from 'next/router';
-
-import { NavContext, RouterEnums } from '../../lib';
-import { VscBriefcase } from 'react-icons/vsc';
+import { NavContext } from '../../lib';
 
 export interface INavMenuProps {
   activePage?: string;
   route?: string;
 }
- 
+
 const NavMenu: React.FC<INavMenuProps> = ({
   route,
 }) => {
-  const history = useRouter();
   const { activePage } = useContext(NavContext);
 
   return (

@@ -1,16 +1,12 @@
-import { useRouter } from 'next/router';
 import React from 'react';
 import { VscAdd, VscCloudUpload } from 'react-icons/vsc';
-import { ContractSummaryCardContainer } from '../../components/cards/contracts';
-import Layout from '../../components/hoc/with-layout.component';
+import { ContractSummaryCardContainer, Layout } from '../../components/';
 
-export interface IUserPageProps {
+export interface IContractPageProps {
 
 }
 
-const UserPage: React.FC<IUserPageProps> = () => {
-  const router = useRouter();
-
+const ContractPage: React.FC<IContractPageProps> = () => {
   return (
     <Layout>
       <div className={'w-full items-center content-center justify-items-center place-items-center m-2 p-2 grid'}>
@@ -60,4 +56,4 @@ const UserPage: React.FC<IUserPageProps> = () => {
   );
 };
  
-export default UserPage;
+export default ContractPage;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { VscCircleSlash, VscSave } from 'react-icons/vsc';
-import { EditCard, ViewCard } from '.';
+import { ViewCard } from '.';
+import { Button } from '..';
  
 export interface IBioCardProps {
   bio: string;
@@ -33,18 +34,22 @@ const BioCard: React.FC<IBioCardProps> = ({
               {editable && <VscCircleSlash className={'inline float-right cursor-pointer'} onClick={() => setMode('view')} />}
             </div>
             <div className={'text-base'}>
-              <textarea className={'text-black w-full min-h-full'} value={editBio} onChange={({ currentTarget }) => setEditBio(currentTarget.value)} />
+              <textarea
+                className={'text-black w-full min-h-full'}
+                value={editBio}
+                onChange={({ currentTarget }) => setEditBio(currentTarget.value)}
+              />
             </div>
             <div>
-              <button
+              <Button
                 onClick={() => {
                   onBioEditSave(editBio);
                   setMode('view');
                 }}
-                className={'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2'}
-              >
-                <VscSave className="text-white m4-1 inline" /> Save
-              </button>
+                colour={'green'}
+                icon={<VscSave className="text-white m4-1 inline" />}   
+                text={'Save'}
+              />
             </div>
           </div>
         </div>

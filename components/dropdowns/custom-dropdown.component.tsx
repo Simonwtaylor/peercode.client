@@ -28,10 +28,7 @@ const CustomDropdown: React.FC<ICustomDropdownProps> = ({
     <select
       value={value}
       onChange={({ currentTarget }) => onSelect(+currentTarget.value)}
-      onSelect={({ currentTarget }) => {
-        console.log(`HIT FIRST LAYER ${currentTarget}`)
-        onSelect(+currentTarget.value)}
-      }
+      onSelect={({ currentTarget }) => onSelect(+currentTarget.value)}
       className={'text-black'}
       placeholder={'---Please select---'}
       disabled={disabled}

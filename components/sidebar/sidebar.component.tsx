@@ -1,5 +1,14 @@
 import React, { useContext } from 'react';
-import { VscComment, VscPreview, VscProject, VscRepo, VscSearch, VscTable, VscTools, VscVerified } from 'react-icons/vsc';
+import {
+	VscComment,
+	VscPreview,
+	VscProject,
+	VscRepo,
+	VscSearch,
+	VscTable,
+	VscTools,
+	VscVerified,
+} from 'react-icons/vsc';
 import { useRouter } from 'next/router';
 import { NavContext, RouterEnums } from '../../lib';
 
@@ -18,9 +27,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ }) => {
 		<div className="w-2/12 bg-white rounded p-3 shadow-lg">
 			<div
 				className="flex items-center space-x-4 p-2 mb-5 cursor-pointer"
-				onClick={() => {
-					handleNavigation(RouterEnums.SETTINGS);
-				}}
+				onClick={() => handleNavigation(RouterEnums.SETTINGS)}
 			>
 				<img className="h-12 rounded-full" alt={''} src={'https://lh3.googleusercontent.com/ogw/ADea4I6VLmj2JDCRaAILO3eM5-cHw-4PbQZkJMCwTj6a=s64-c-mo'} />
 				<div>
@@ -30,9 +37,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ }) => {
 			</div>
 			<ul className="space-y-2 text-sm">
 				<li
-					onClick={() => {
-						handleNavigation(RouterEnums.HOME);
-					}}
+					onClick={() => handleNavigation(RouterEnums.HOME)}
 					className={'cursor-pointer'}
 				>
 					<div className={`${activePage === RouterEnums.HOME && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
@@ -41,9 +46,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ }) => {
 					</div>
 				</li>
 				<li
-					onClick={() => {
-						handleNavigation(RouterEnums.SESSIONS);
-					}}
+					onClick={() => handleNavigation(RouterEnums.SESSIONS)}
 					className={'cursor-pointer'}
 				>
 					<div className={`${activePage === RouterEnums.SESSIONS && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
@@ -52,9 +55,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ }) => {
 					</div>
 				</li>
 				<li
-					onClick={() => {
-						handleNavigation(RouterEnums.CHAT);
-					}}
+					onClick={() => handleNavigation(RouterEnums.CHAT)}
 					className={'cursor-pointer'}
 				>
 					<div className={`${activePage === RouterEnums.CHAT && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
@@ -63,9 +64,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ }) => {
 					</div>
 				</li>
 				<li
-					onClick={() => {
-						handleNavigation(RouterEnums.CONTRACTS);
-					}}
+					onClick={() => handleNavigation(RouterEnums.CONTRACTS)}
 					className={'cursor-pointer'}
 				>
 					<div className={`${activePage === RouterEnums.CONTRACTS && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
@@ -74,9 +73,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ }) => {
 					</div>
 				</li>
 				<li
-					onClick={() => {
-						handleNavigation(RouterEnums.EXPLORE);
-					}}
+					onClick={() => handleNavigation(RouterEnums.EXPLORE)}
 					className={'cursor-pointer'}
 				>
 					<div className={`${activePage === RouterEnums.EXPLORE && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
@@ -85,9 +82,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ }) => {
 					</div>
 				</li>
 				<li
-					onClick={() => {
-						handleNavigation(RouterEnums.ARTICLES);
-					}}
+					onClick={() => handleNavigation(RouterEnums.ARTICLES)}
 					className={'cursor-pointer'}
 				>
 					<div className={`${activePage === RouterEnums.ARTICLES && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
@@ -96,9 +91,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ }) => {
 					</div>
 				</li>
 				<li
-					onClick={() => {
-						handleNavigation(RouterEnums.SETTINGS);
-					}}
+					onClick={() => handleNavigation(RouterEnums.SETTINGS)}
 					className={'cursor-pointer'}
 				>
 					<div className={`${activePage === RouterEnums.SETTINGS && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
@@ -110,5 +103,5 @@ const Sidebar: React.FC<ISidebarProps> = ({ }) => {
 		</div>
 	);
 };
- 
+
 export default Sidebar;

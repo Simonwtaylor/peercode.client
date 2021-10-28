@@ -1,6 +1,11 @@
+import React from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import React from 'react'
-import { getRemainingSkillsForUserQuery, getUserSkillsQuery, IUserSkillsResponse, removeUserSkillMutation } from '../../../lib';
+import {
+  getRemainingSkillsForUserQuery,
+  getUserSkillsQuery,
+  IUserSkillsResponse,
+  removeUserSkillMutation,
+} from '../../../lib';
 import SkillCards from './skills-card.component';
  
 export interface ISkillsCardContainerProps {
@@ -28,7 +33,6 @@ const SkillsCardContainer: React.FC<ISkillsCardContainerProps> = ({
     });
   };
 
-
   if (loading) {
     return <>Loading...</>;
   }
@@ -38,8 +42,12 @@ const SkillsCardContainer: React.FC<ISkillsCardContainerProps> = ({
   }
 
   return (
-    <SkillCards skills={data?.getUserSkills ?? []} editable={editable} onUserSkillRemove={handleRemoveSkill} />
+    <SkillCards
+      skills={data?.getUserSkills ?? []}
+      editable={editable}
+      onUserSkillRemove={handleRemoveSkill}
+    />
   );
 };
- 
+
 export default SkillsCardContainer;

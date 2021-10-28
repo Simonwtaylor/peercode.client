@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
-import { VscGithubAlt, VscTwitter, VscGlobe, VscVerified, VscBook, VscEdit, VscSave, VscCircleSlash, VscComment, VscRepo } from 'react-icons/vsc';
+import {
+  VscGithubAlt,
+  VscTwitter,
+  VscGlobe,
+  VscVerified,
+  VscBook,
+  VscEdit,
+  VscSave,
+  VscCircleSlash,
+  VscComment,
+  VscRepo,
+} from 'react-icons/vsc';
 import Button from '../buttons/button.component';
 import { CheckboxInput, TextInput } from '../inputs';
 
@@ -47,7 +58,7 @@ const ProfileCard: React.FC<IProfileCardProps> = ({
     if (mode === 'edit') {
       return (
         <>
-          <button
+          <Button
             onClick={() => {
               onProfileEditSave({ 
                 username: editUsername,
@@ -61,13 +72,16 @@ const ProfileCard: React.FC<IProfileCardProps> = ({
 
               setMode('view');
             }}
-            className={'bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2'}
-          >
-            <VscSave className="text-white m4-1 inline" /> Save
-          </button>
-          <button onClick={() => setMode('view')} className={'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2'}>
-            <VscCircleSlash className="text-white m4-1 inline" /> Cancel
-          </button>
+            colour={'green'}
+            text={'Save'}
+            icon={<VscSave className="text-white m4-1 inline" />} 
+          />
+          <Button
+            onClick={() => setMode('view')}
+            colour={'red'}
+            text={'Cancel'}
+            icon={<VscCircleSlash className="text-white m4-1 inline" />} 
+          />
         </>
       );
     }

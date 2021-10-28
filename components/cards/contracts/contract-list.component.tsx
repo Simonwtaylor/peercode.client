@@ -1,8 +1,9 @@
 import React from 'react';
+import { IContract } from '../../../lib/';
 import ContractSummaryCard from './contract-summary-card.component';
 
 export interface IContractListProps {
-  contracts: any[];
+  contracts: IContract[];
 }
  
 const ContractList: React.FC<IContractListProps> = ({

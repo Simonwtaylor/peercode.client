@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { VscEdit } from 'react-icons/vsc';
  
 export interface IViewCardProps {

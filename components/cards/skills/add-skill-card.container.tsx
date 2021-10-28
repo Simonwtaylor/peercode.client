@@ -1,6 +1,10 @@
 import { useMutation } from '@apollo/client';
 import React from 'react'
-import { addUserSkillMutation, getRemainingSkillsForUserQuery, getUserSkillsQuery } from '../../../lib';
+import {
+  addUserSkillMutation,
+  getRemainingSkillsForUserQuery,
+  getUserSkillsQuery,
+} from '../../../lib';
 import AddSkillCard from './add-skill-card.component';
  
 export interface IAddSkillCardContainerProps {
@@ -12,7 +16,10 @@ const AddSkillCardContainer: React.FC<IAddSkillCardContainerProps> = ({
 }) => {
 
   const [addUserSkill] = useMutation(addUserSkillMutation);
-  const handleAddSkill = ({ skillId, yearsExperience }: any) => {
+  const handleAddSkill = (
+    { skillId, yearsExperience }:
+    { skillId: number, yearsExperience: number },
+  ) => {
     addUserSkill({
       variables: {
         userSkill: {
