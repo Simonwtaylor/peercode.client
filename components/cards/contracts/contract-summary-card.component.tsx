@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 import { VscBellDot, VscFlame, VscRocket, VscSymbolEvent } from 'react-icons/vsc';
+import { SkillsCard } from '..';
 import { IContract, RouterEnums } from '../../../lib';
  
 export interface IContractSummaryCardProps {
@@ -14,7 +15,7 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
 }) => {
   const router = useRouter();
 
-  const { startDate, endDate, name, status, id, description } = contract;
+  const { startDate, endDate, name, status, id, description, numberOfSessions, sessionPrice, skills } = contract;
 
   const getDateRange = () => {
     let res = '';
@@ -87,7 +88,9 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
               <img
                 src={'https://lh3.googleusercontent.com/ogw/ADea4I6VLmj2JDCRaAILO3eM5-cHw-4PbQZkJMCwTj6a=s64-c-mo'}
                 alt=""
-                className="absolute inset-0 w-9/12 m-auto self-center h-full object-cover rounded-full"
+                className="absolute inset-0 m-auto self-center object-cover rounded-full"
+                height="75"
+                width="75"
               />
             </div>
             <div className={'flex-auto p-4'}>
@@ -95,8 +98,11 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
                 <div className={'text-lg'}>
                   {description}
                 </div>
+                <div className={'my-1'}>
+                  <SkillsCard skills={skills} />
+                </div>
                 <div className={'text-lg'}>
-                  <b>Total Value:</b> £{10000/100}
+                  {sessionPrice && numberOfSessions && `${<b>Total Value:</b>} £${sessionPrice*numberOfSessions}`}
                 </div>
               </div>
             </div>

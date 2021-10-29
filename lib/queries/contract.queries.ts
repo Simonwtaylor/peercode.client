@@ -52,6 +52,8 @@ query contract ($id: Int!) {
       startDate
       endDate
       statusId
+      numberOfSessions
+      sessionPrice
       status {
           id
           status
@@ -103,6 +105,29 @@ query contract ($id: Int!) {
           isActive
           iconPath
       }
+  }
+}
+`;
+
+export const getContractHistoryQuery = gql`
+query contractHistories ($contractId: Int!) {
+  contractHistories (contractId: $contractId) {
+    id
+    message
+    user {
+      id
+      username
+      email
+      role
+      bio
+      github
+      twitter
+      website
+      mentor
+      uid
+    }
+    userId
+    contractId
   }
 }
 `;

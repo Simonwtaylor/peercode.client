@@ -1,17 +1,12 @@
 import React from 'react';
-import { VscClose } from 'react-icons/vsc';
-import { IUserSkill } from '../../../lib';
+import { ISkill } from '../../../lib';
 
 export interface ISkillCardsProps {
-  skills: IUserSkill[];
-  editable?: boolean;
-  onUserSkillRemove: (userSkillId: number) => void;
+  skills: ISkill[];
 }
 
 const SkillCards: React.FC<ISkillCardsProps> = ({
   skills,
-  editable,
-  onUserSkillRemove,
 }) => {
 
   const getYearsText = (years: number) => {
@@ -23,13 +18,12 @@ const SkillCards: React.FC<ISkillCardsProps> = ({
   };
 
   const mapSkills = () => {
-    return skills.map(({ id, skill, yearsExperience }) => 
+    return skills.map(({ id, colour, name }) => 
       <div
         key={`skillscard${id}`}
-        className={`tracking-wider text-white bg-${skill.colour}-700 px-2 text-sm rounded leading-loose font-semibold`}
+        className={`tracking-wider text-white bg-${colour}-700 px-2 text-sm rounded leading-loose font-semibold`}
       >
-        {skill.name} - {getYearsText(yearsExperience)}
-        {editable && <VscClose className={'float-right mt-2'} onClick={() => onUserSkillRemove(id)} />}
+        {name}
       </div>
     );
   };

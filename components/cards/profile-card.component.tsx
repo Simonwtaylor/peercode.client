@@ -102,7 +102,9 @@ const ProfileCard: React.FC<IProfileCardProps> = ({
                 <img
                   src={'https://lh3.googleusercontent.com/ogw/ADea4I6VLmj2JDCRaAILO3eM5-cHw-4PbQZkJMCwTj6a=s64-c-mo'}
                   alt=""
-                  className="absolute inset-0 w-9/12 m-auto self-center h-full object-cover rounded-full"
+                  className="absolute inset-0 m-auto self-center object-cover rounded-full"
+                  height="75"
+                  width="75"
                 />
               </div>
               <div className={'flex-auto p-4'}>

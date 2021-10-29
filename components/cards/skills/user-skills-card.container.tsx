@@ -6,14 +6,14 @@ import {
   IUserSkillsResponse,
   removeUserSkillMutation,
 } from '../../../lib';
-import SkillCards from './skills-card.component';
+import SkillCards from './user-skills-card.component';
  
-export interface ISkillsCardContainerProps {
+export interface IUserSkillsCardContainerProps {
   userId: number;
   editable?: boolean;
 }
  
-const SkillsCardContainer: React.FC<ISkillsCardContainerProps> = ({
+const UserSkillsCardContainer: React.FC<IUserSkillsCardContainerProps> = ({
   userId,
   editable,
 }) => {
@@ -50,4 +50,4 @@ const SkillsCardContainer: React.FC<ISkillsCardContainerProps> = ({
   );
 };
 
-export default SkillsCardContainer;
+export default UserSkillsCardContainer;

@@ -32,6 +32,8 @@ export interface IContract {
   name: string;
   startDate?: Date;
   endDate?: Date;
+  numberOfSessions?: number;
+  sessionPrice?: number;
   statusId: number;
   status: IContractStatus;
   histories: IContractHistory[];
@@ -46,4 +48,8 @@ export interface IContractsForUserResponse {
 
 export interface IContractResponse {
   contract: IContract;
+}
+
+export interface IContractHistoriesResponse {
+  contractHistories: IContractHistory[];
 }

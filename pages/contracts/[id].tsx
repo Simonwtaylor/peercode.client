@@ -1,13 +1,18 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import { VscAdd, VscCloudUpload } from 'react-icons/vsc';
 import { ContractSummaryCardContainer, Layout } from '../../components/';
+import { ContractHistoryContainer } from '../../components/';
 
 const ContractPage: React.FC = () => {
+  const router = useRouter();
+  const id = +(router.query?.id as string ?? '') ?? 0;
+
   return (
     <Layout>
       <div className={'w-full items-center content-center justify-items-center place-items-center m-2 p-2 grid'}>
         <div className={'w-2/3'}>
-          <ContractSummaryCardContainer />
+          <ContractSummaryCardContainer contractId={id} />
         </div>
         <div className={'flex w-2/3 my-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
           <div className={'flex-auto p-4'}>
@@ -47,6 +52,7 @@ const ContractPage: React.FC = () => {
             </div>
           </div>
         </div>
+        <ContractHistoryContainer contractId={id} />
       </div>
     </Layout>
   );

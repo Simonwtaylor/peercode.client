@@ -1,15 +1,18 @@
-import { useRouter } from 'next/router';
 import React from 'react';
 import ContractSummaryCard from './contract-summary-card.component';
 import { useQuery } from '@apollo/client';
 import { getContractQuery, IContractResponse } from '../../../lib';
 
-const ContractSummaryCardContainer: React.FC = () => {
-  const router = useRouter();
+interface IContractSummaryCardContainer {
+  contractId: number;
+}
 
+const ContractSummaryCardContainer: React.FC<IContractSummaryCardContainer> = ({
+  contractId,
+}) => {
   const { data, loading, error } = useQuery<IContractResponse>(getContractQuery, {
     variables: {
-      id: +(router.query?.id as string ?? '') ?? 0,
+      id: contractId,
     },
   });
 
