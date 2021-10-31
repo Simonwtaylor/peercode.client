@@ -1,4 +1,5 @@
 export * from './contracts';
+export * from './sessions';
 export * from './skills';
 export { default as BioCard } from './bio-card.component';
 export { default as BioCardContainer } from './bio-card.container';

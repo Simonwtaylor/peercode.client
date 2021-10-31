@@ -15,8 +15,10 @@ const ContractHistory: React.FC<IContractHistoryProps> = ({ contractHistories })
 
     return (
       <div className={'text-base'}>
-        {contractHistories.map(({ message }) => (
-          <div className={'flex'}>
+        {contractHistories.map(({ message, id }) => (
+          <div className={'flex'}
+            key={`contracthistorymessage${id}`}
+          >
             <div className="flex-none w-1/12 relative">
               <img
                 src={'https://lh3.googleusercontent.com/ogw/ADea4I6VLmj2JDCRaAILO3eM5-cHw-4PbQZkJMCwTj6a=s64-c-mo'}

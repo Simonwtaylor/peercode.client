@@ -1,6 +1,7 @@
 export enum RouterEnums {
   HOME = '/',
   SESSIONS = '/sessions',
+  SESSION = '/sessions/{slug}',
   CHAT = '/chat',
   CONTRACTS = '/contracts',
   CONTRACT = '/contracts/{slug}',
