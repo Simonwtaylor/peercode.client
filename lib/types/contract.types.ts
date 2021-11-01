@@ -1,3 +1,4 @@
+import { ISession } from '.';
 import { ISkill } from './skill.types';
 import { IUser } from './user.types';
 
@@ -39,6 +40,7 @@ export interface IContract {
   histories: IContractHistory[];
   userContracts: IUserContract[];
   skills: ISkill[];
+  sessions?: ISession[];
 }
 
 // *** Responses ***

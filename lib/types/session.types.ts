@@ -19,3 +19,11 @@ export interface ISession {
 export interface ISessionsForUserResponse {
   userSessions: ISession[];
 }
+
+export interface IContractSessionsResponse {
+  contractSessions: ISession[];
+}
+
+export interface ISessionResponse {
+  session: ISession;
+}

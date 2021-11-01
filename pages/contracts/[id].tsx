@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React from 'react';
-import { VscAdd, VscCloudUpload } from 'react-icons/vsc';
-import { ContractSummaryCardContainer, Layout } from '../../components/';
+import { VscCloudUpload } from 'react-icons/vsc';
+import { ContractSessionList, ContractSummaryCardContainer, Layout } from '../../components/';
 import { ContractHistoryContainer } from '../../components/';
 
 const ContractPage: React.FC = () => {
@@ -14,19 +14,7 @@ const ContractPage: React.FC = () => {
         <div className={'w-2/3'}>
           <ContractSummaryCardContainer contractId={id} />
         </div>
-        <div className={'flex w-2/3 my-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
-          <div className={'flex-auto p-4'}>
-            <div className={'my-1'}>
-              <div className={'text-xl font-bold my-2'}>
-                Sessions
-
-                <VscAdd className={'inline float-right cursor-pointer'} onClick={() => console.log('add')} />
-              </div>
-              <div className={'text-base'}>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ContractSessionList contractId={id} clickable={false} />
         <div className={'flex w-2/3 my-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
           <div className={'flex-auto p-4'}>
             <div className={'my-1'}>

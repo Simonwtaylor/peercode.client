@@ -105,6 +105,21 @@ query contract ($id: Int!) {
           isActive
           iconPath
       }
+      sessions {
+        id
+        startDate
+        endDate
+        name
+        description
+        notes
+        statusId
+        status {
+            id
+            status
+            isActive
+        }
+        contractId
+    }
   }
 }
 `;
