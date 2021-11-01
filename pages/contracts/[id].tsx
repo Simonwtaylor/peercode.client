@@ -14,7 +14,7 @@ const ContractPage: React.FC = () => {
         <div className={'w-2/3'}>
           <ContractSummaryCardContainer contractId={id} />
         </div>
-        <ContractSessionList contractId={id} clickable={false} />
+        <ContractSessionList contractId={id} clickable={true} />
         <div className={'flex w-2/3 my-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
           <div className={'flex-auto p-4'}>
             <div className={'my-1'}>
