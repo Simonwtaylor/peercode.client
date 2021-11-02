@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import React, { useState } from 'react';
 import { IContractHistory } from '../../../lib';
  
@@ -15,7 +16,7 @@ const ContractHistory: React.FC<IContractHistoryProps> = ({ contractHistories })
 
     return (
       <div className={'text-base'}>
-        {contractHistories.map(({ message, id }) => (
+        {contractHistories.map(({ message, id, createdAt }) => (
           <div className={'flex'}
             key={`contracthistorymessage${id}`}
           >
@@ -28,9 +29,17 @@ const ContractHistory: React.FC<IContractHistoryProps> = ({ contractHistories })
                 width="50"
               />
             </div>
-            <div className={'flex-auto p-4'}>
-              {message}
+            <div className={'flex-auto text-lg p-4'}>
+              <span className={'block w-full'}>{message}</span>
+              {
+              (createdAt && 
+                <span className={'block text-xs w-full'}>
+                  {dayjs(createdAt).format('ddd, MMM D, YYYY h:mm A')}
+                </span>
+              )
+            }
             </div>
+            
           </div>
         ))}
       </div>

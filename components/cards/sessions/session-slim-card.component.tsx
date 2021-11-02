@@ -19,7 +19,7 @@ const SessionSlimCard: React.FC<ISessionSlimCardProps> = ({
   const getDateRange = () => {
     let res = '';
     if (startDate) {
-      res += `${dayjs(startDate).format('MMM D, YYYY')} ${dayjs(startDate).format('h:mm A')}`;
+      res += `${dayjs(startDate).format('h:mm A')}`;
     }
 
     if (endDate) {
@@ -59,6 +59,9 @@ const SessionSlimCard: React.FC<ISessionSlimCardProps> = ({
           <div className={'flex'}>
             <div className={'flex-auto py-2 px-4'}>
               <div className={'my-1'}>
+                <div className={'text-xl'}>
+                  {dayjs(startDate).format('dddd, MMMM D')}
+                </div>
                 <div className={'text-lg'}>
                   {getDateRange()}
                 </div>

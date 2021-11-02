@@ -16,7 +16,7 @@ const SessionsList: React.FC<ISessionsListProps> = ({
     getSessionQuery,
     {
       variables: {
-        sessionId,
+        id: sessionId,
       },
     }
   );

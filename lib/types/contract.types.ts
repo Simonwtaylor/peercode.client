@@ -14,6 +14,7 @@ export interface IContractHistory {
   user?: IUser;    
   userId?: number;
   contractId: number;
+  createdAt?: Date;
 }
 
 export interface IUserContract {

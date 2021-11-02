@@ -143,6 +143,7 @@ query contractHistories ($contractId: Int!) {
     }
     userId
     contractId
+    createdAt
   }
 }
 `;
