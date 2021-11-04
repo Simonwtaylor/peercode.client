@@ -16,6 +16,7 @@ const ContractList: React.FC<IContractListProps> = ({
         key={`contractsummary${contract.id}`}
         contract={contract}
         clickable={true}
+        editable={false}
       />
     ));
   };

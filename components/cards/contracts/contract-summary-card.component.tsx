@@ -9,11 +9,15 @@ import { DatePickerInput, TextInput } from '../../inputs';
 export interface IContractSummaryCardProps {
   contract: IContract;
   clickable: boolean;
+  editable: boolean;
+  onUpdateContract?: (newContract: IContract) => void;
 }
  
 const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
   contract,
   clickable,
+  editable,
+  onUpdateContract,
 }) => {
   const [mode, setMode] = useState<'view'|'edit'>('view');
 
@@ -21,8 +25,8 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
 
   const { startDate, endDate, name, status, id, description, numberOfSessions, sessionPrice, skills } = contract;
 
-  const [editStartDate, setEditStartDate] = useState(startDate);
-  const [editEndDate, setEditEndDate] = useState(endDate);
+  const [editStartDate, setEditStartDate] = useState((startDate && new Date(startDate)) ?? undefined);
+  const [editEndDate, setEditEndDate] = useState((endDate && new Date(endDate)) ?? undefined);
   const [editName, setEditName] = useState(name);
   const [editDescription, setEditDescription] = useState(description);
 
@@ -33,11 +37,11 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
   const getDateRange = () => {
     let res = '';
     if (startDate) {
-      res += `${startDate}`;
+      res += `${dayjs(startDate).format('MMMM D, YYYY')}`;
     }
 
     if (endDate) {
-      res += ` -> ${endDate}`;
+      res += ` -> ${dayjs(endDate).format('MMMM D, YYYY')}`;
     }
 
     return res;
@@ -89,7 +93,7 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
       return (
         <>
           <span className={'float-right mx-1'}><VscBellDot /></span>
-          <span className={'float-right mx-1'}><VscEdit onClick={() => setMode('edit')} /></span>
+          {editable && <span className={'float-right mx-1'}><VscEdit onClick={() => setMode('edit')} /></span>}
         </>
       );
     }
@@ -98,7 +102,22 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
       return (
         <>
           <span className={'float-right mx-1'}><VscCircleSlash onClick={() => setMode('view')} /></span>
-          <span className={'float-right mx-1'}><VscSave onClick={() => setMode('view')} /></span>
+          <span
+            className={'float-right mx-1'}
+          >
+            <VscSave
+              onClick={() => {
+                onUpdateContract && onUpdateContract({
+                  ...contract,
+                  description: editDescription,
+                  name: editName,
+                  startDate: editStartDate,
+                  endDate: editEndDate,
+                });
+                setMode('view');
+              }}
+            />
+          </span>
         </>
       )
     }
