@@ -1,29 +1,20 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 import { CustomDropdown } from '.';
-import { getRemainingSkillsForUserQuery, IGetRemainingSkillsForUserResponse } from '../../lib';
+import { getSkillsQuery, IGetSkillsResponse, ISkill } from '../../lib';
  
 export interface ISkillsDropdownProps {
-  userId: number;
   selectedItem?: number;
-  onSelectSkill: (id: number) => void;
+  onSelectSkill: (skill?: ISkill) => void;
   disabled?: boolean;
 }
  
 const SkillsDropdown: React.FC<ISkillsDropdownProps> = ({
-  userId,
   onSelectSkill,
   selectedItem,
   disabled,
 }) => {
-  const { data, loading, error } = useQuery<IGetRemainingSkillsForUserResponse>(
-    getRemainingSkillsForUserQuery,
-    {
-      variables: {
-        id: userId,
-      },
-    },
-  );
+  const { data, loading, error } = useQuery<IGetSkillsResponse>(getSkillsQuery);
 
   if (loading) {
     return <>Loading...</>;
@@ -36,12 +27,12 @@ const SkillsDropdown: React.FC<ISkillsDropdownProps> = ({
   return (
     <CustomDropdown
       data={
-        data?.getRemainingSkillsForUser?.map(
+        data?.skills?.map(
           ({ id, name }) => ({ id, text: name, key: `skillsddl${id}` }),
         ) ?? []
       }
       value={selectedItem}
-      onSelect={onSelectSkill}
+      onSelect={(id) => onSelectSkill(data?.skills.find(a => a.id === id))}
       disabled={disabled}
     />
   );

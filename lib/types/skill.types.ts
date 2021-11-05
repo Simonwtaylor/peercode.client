@@ -6,6 +6,10 @@ export interface IGetRemainingSkillsForUserResponse {
   getRemainingSkillsForUser: ISkill[];
 }
 
+export interface IGetSkillsResponse {
+  skills: ISkill[];
+}
+
 export interface IUserSkill {
   id: number;
   yearsExperience: number;

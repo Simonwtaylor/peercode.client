@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { VscSave } from 'react-icons/vsc';
 import Button from '../../buttons/button.component';
-import { SkillsDropdown } from '../../dropdowns';
+import { UserSkillsDropdown } from '../../dropdowns';
 import { TextInput } from '../../inputs';
  
 export interface IAddSkillCardProps {
@@ -22,7 +22,7 @@ const AddSkillCard: React.FC<IAddSkillCardProps> = ({
         Add a new Skill
       </div>
       <div className={'grid grid-cols-3 gap-5 my-4'}>
-        <SkillsDropdown
+        <UserSkillsDropdown
           userId={userId}
           onSelectSkill={(id: number) => {
             setSkill(id);

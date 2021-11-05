@@ -56,3 +56,20 @@ export interface IContractResponse {
 export interface IContractHistoriesResponse {
   contractHistories: IContractHistory[];
 }
+
+// *** Create ***
+export interface ICreateContract {
+  description: string;
+  name: string;
+  startDate?: Date;
+  endDate?: Date;
+  numberOfSessions?: number;
+  sessionPrice?: number;
+  statusId: number;
+  skills: number[];
+  userContracts: {
+    didCreate: boolean;
+    isMentor: boolean;
+    userId: number;
+  }[];
+}

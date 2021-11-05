@@ -5,6 +5,7 @@ export enum RouterEnums {
   CHAT = '/chat',
   CONTRACTS = '/contracts',
   CONTRACT = '/contracts/{slug}',
+  CONTRACT_CREATE = '/contracts/create/{slug}',
   EXPLORE = '/explore',
   USER = '/user/{slug}',
   ARTICLES = '/articles',

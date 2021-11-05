@@ -7,3 +7,11 @@ mutation updateContract ($updateContractInput: UpdateContractModel!) {
   }
 }
 `;
+
+export const createContractMutation = gql`
+mutation createContract ($createContractInput: CreateContractModel!) {
+  createContract (createContractInput: $createContractInput) {
+    id
+  }
+}
+`;

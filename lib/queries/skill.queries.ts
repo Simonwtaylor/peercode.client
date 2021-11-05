@@ -26,3 +26,15 @@ query getRemainingSkillsForUser($id: Int!) {
   }
 }
 `;
+
+export const getSkillsQuery = gql`
+query skills {
+  skills {
+    id
+    name
+    colour
+    isActive
+    iconPath
+  }
+}
+`;

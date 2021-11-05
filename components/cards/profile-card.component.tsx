@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import {
   VscGithubAlt,
@@ -11,10 +12,12 @@ import {
   VscComment,
   VscRepo,
 } from 'react-icons/vsc';
+import { RouterEnums } from '../../lib';
 import Button from '../buttons/button.component';
 import { CheckboxInput, TextInput } from '../inputs';
 
 export interface IUserProfileProps {
+  id?: number;
   username: string;
   email: string;
   role: string;
@@ -36,7 +39,8 @@ const ProfileCard: React.FC<IProfileCardProps> = ({
   onProfileEditSave
 }) => {
   const [mode, setMode] = useState<'view'|'edit'>('view');
-  const { username, email, role, mentor, twitter, github, website } = data;
+  const router = useRouter();
+  const { username, email, role, mentor, twitter, github, website, id } = data;
 
   const [editUsername, setEditUsername] = useState(username);
   const [editEmail, setEditEmail] = useState(email);
@@ -120,7 +124,13 @@ const ProfileCard: React.FC<IProfileCardProps> = ({
               {!editable && 
                 <div className={'flex-none w-3/12 p-4'}>
                   <Button classes={'w-full  my-1'} colour={'purple'} text={'Chat'} icon={<VscComment className={'text-white mx-1 inline'} />} onClick={() => console.log()} />
-                  <Button classes={'w-full my-1'} colour={'green'} text={'Book'} icon={<VscRepo className={'text-white mx-1 inline'} />} onClick={() => console.log()} />
+                  <Button
+                    classes={'w-full my-1'}
+                    colour={'green'}
+                    text={'Book'}
+                    icon={<VscRepo className={'text-white mx-1 inline'} />}
+                    onClick={() => router.push(RouterEnums.CONTRACT_CREATE.replace('{slug}', `${id ?? 0}`))}
+                  />
                 </div>
               }
             </div>
