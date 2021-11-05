@@ -21,7 +21,7 @@ const Button: React.FC<IButtonProps> = ({
       onClick={onClick}
     >
       {icon && icon}
-      {text}
+      <span className={'ml-2'}>{text}</span>
     </button>
   );
 };

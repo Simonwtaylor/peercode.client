@@ -21,7 +21,7 @@ const DatePickerInput: React.FC<IDatePickerInputProps> = ({
     <div>
       {label && <span className={'w-full block'}>{label}</span>}
       <DatePicker
-        className={'text-black w-10/12 p-1 rounded'}
+        className={'text-black w-full p-1 rounded'}
         dateFormat={'dd/MM/yyyy'}
         selected={currentDate}
         startDate={startDate}

@@ -29,7 +29,7 @@ const CustomDropdown: React.FC<ICustomDropdownProps> = ({
       value={value}
       onChange={({ currentTarget }) => onSelect(+currentTarget.value)}
       onSelect={({ currentTarget }) => onSelect(+currentTarget.value)}
-      className={'text-black'}
+      className={'text-black rounded'}
       placeholder={'---Please select---'}
       disabled={disabled}
     >

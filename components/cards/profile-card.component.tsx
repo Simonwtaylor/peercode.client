@@ -123,7 +123,7 @@ const ProfileCard: React.FC<IProfileCardProps> = ({
               </div>
               {!editable && 
                 <div className={'flex-none w-3/12 p-4'}>
-                  <Button classes={'w-full  my-1'} colour={'purple'} text={'Chat'} icon={<VscComment className={'text-white mx-1 inline'} />} onClick={() => console.log()} />
+                  <Button classes={'w-full  my-1'} colour={'purple'} text={'Chat'} icon={<VscComment className={'text-white mr-2 inline'} />} onClick={() => console.log()} />
                   <Button
                     classes={'w-full my-1'}
                     colour={'green'}
@@ -154,25 +154,25 @@ const ProfileCard: React.FC<IProfileCardProps> = ({
     return (
       <div className={'flex flex-col w-2/3 my-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
         <div className={'grid grid-cols-2 p-4'}>
-          <div className={''}>
+          <div className={'w-11/12 my-2'}>
             <TextInput onChange={setEditUsername} value={editUsername} label={'Username'} />
           </div>
-          <div className={''}>
+          <div className={'w-11/12 my-2'}>
             <TextInput onChange={setEditEmail} value={editEmail} label={'Email'} />
           </div>
-          <div className={''}>
+          <div className={'w-11/12 my-2'}>
             <TextInput onChange={setEditRole} value={editRole} label={'Role'} />
           </div>
-          <div className={''}>
+          <div className={'w-11/12 my-2'}>
             <TextInput onChange={setEditWebsite} value={editWebsite} label={'Website'} />
           </div>
-          <div className={''}>
+          <div className={'w-11/12 my-2'}>
             <TextInput onChange={setEditGithub} value={editGithub} label={'Github'} />
           </div>
-          <div className={''}>
+          <div className={'w-11/12 my-2'}>
             <TextInput onChange={setEditTwitter} value={editTwitter} label={'Twitter'} />
           </div>
-          <div className={''}>
+          <div className={'w-11/12 my-2'}>
             <CheckboxInput onChange={setEditMentor} value={editMentor} label={'Mentor'} />
           </div>
           {editable && <div className={'my-4'}>

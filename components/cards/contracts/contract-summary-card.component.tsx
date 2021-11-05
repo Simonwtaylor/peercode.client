@@ -165,16 +165,16 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
     if (mode === 'edit') {
       return (
         <div className={'grid grid-cols-2 p-4'}>
-          <div className={''}>
+          <div className={'w-11/12 my-2'}>
             <TextInput onChange={setEditName} value={editName} label={'Name'} />
           </div>
-          <div className={''}>
+          <div className={'w-11/12 my-2'}>
             <TextInput onChange={setEditDescription} value={editDescription} label={'Description'} />
           </div>
-          <div className={''}>
+          <div className={'w-11/12 my-2'}>
             <DatePickerInput date={editStartDate} onDatePickerChange={handleStartDateChange} label={'Start Date'} />
           </div>
-          <div className={''}>
+          <div className={'w-11/12 my-2'}>
             <DatePickerInput startDate={editStartDate} date={editEndDate} onDatePickerChange={setEditEndDate} label={'End Date'}  />
           </div>
         </div>

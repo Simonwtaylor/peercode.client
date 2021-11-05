@@ -6,6 +6,7 @@ export interface ITextInputProps {
   onChange: (newValue: string) => void;
   classes?: string;
   type?: string;
+  placeholder?: string;
 }
 
 const TextInput: React.FC<ITextInputProps> = ({
@@ -14,6 +15,7 @@ const TextInput: React.FC<ITextInputProps> = ({
   value,
   classes,
   type,
+  placeholder,
 }) => {
   return (
     <div>
@@ -21,8 +23,9 @@ const TextInput: React.FC<ITextInputProps> = ({
       <input
         onChange={({ currentTarget }) => onChange(currentTarget.value)}
         value={value}
-        className={`${classes} text-black shadow-sm border-gray-300 rounded-lg my-1 p-1 focus:ring-2 focus:ring-indigo-200 focus:border-indigo-400 w-10/12`}
+        className={`${classes} text-black shadow-sm border-gray-300 rounded p-1 focus:ring-2 focus:ring-indigo-200 focus:border-indigo-400 w-full`}
         type={type}
+        placeholder={placeholder}
       />
     </div>
   );

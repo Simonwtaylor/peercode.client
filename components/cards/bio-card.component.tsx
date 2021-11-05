@@ -40,7 +40,7 @@ const BioCard: React.FC<IBioCardProps> = ({
             </div>
             <div className={'text-base'}>
               <textarea
-                className={'text-black w-full min-h-full'}
+                className={'text-black w-full min-h-full p-2 rounded'}
                 value={editBio}
                 onChange={({ currentTarget }) => setEditBio(currentTarget.value)}
               />

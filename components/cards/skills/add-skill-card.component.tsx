@@ -33,6 +33,8 @@ const AddSkillCard: React.FC<IAddSkillCardProps> = ({
           onChange={(newYearsExp: string) => setYearsExp(+newYearsExp)}
           type={'number'}
           value={`${yearsExp}`}
+          placeholder={'Years Experience'}
+          classes={'py-2'}
         />
         <Button
           icon={<VscSave className={'text-white mx-1 inline'} />}
