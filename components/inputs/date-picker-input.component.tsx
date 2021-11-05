@@ -22,13 +22,15 @@ const DatePickerInput: React.FC<IDatePickerInputProps> = ({
       {label && <span className={'w-full block'}>{label}</span>}
       <DatePicker
         className={'text-black w-full p-1 rounded'}
-        dateFormat={'dd/MM/yyyy'}
+        dateFormat={'MMMM d, yyyy h:mm aa'}
         selected={currentDate}
         startDate={startDate}
         onChange={(d) => {
           setCurrentDate(d as Date ?? undefined);
           onDatePickerChange(d as Date);
         }}
+        showTimeInput={true}
+        showTimeSelect={true}
       />
     </div>
   );

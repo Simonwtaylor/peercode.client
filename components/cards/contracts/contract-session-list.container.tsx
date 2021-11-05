@@ -3,17 +3,21 @@ import React, { useState } from 'react';
 import { VscAdd } from 'react-icons/vsc';
 import { getContractSessionsQuery, IContractSessionsResponse } from '../../../lib';
 import { SessionSlimCard } from '../sessions/';
+import SessionAddContainer from '../sessions/session-add.container';
  
 export interface IContractSessionsListProps {
   contractId: number;
   clickable: boolean;
+  users?: number[];
 }
  
 const ContractSessionsList: React.FC<IContractSessionsListProps> = ({
   contractId,
   clickable,
+  users,
 }) => {
   const [expanded, setExpanded] = useState(true);
+  const [addNew, setAddNew] = useState(false);
   const { data, loading, error } = useQuery<IContractSessionsResponse>(
     getContractSessionsQuery,
     {
@@ -46,7 +50,7 @@ const ContractSessionsList: React.FC<IContractSessionsListProps> = ({
             <div className={'text-xl font-bold my-2'}>
               Sessions
 
-              <VscAdd className={'inline float-right cursor-pointer'} onClick={() => console.log('add')} />
+              <VscAdd className={'inline float-right cursor-pointer'} onClick={() => setAddNew(true)} />
             </div>
             <div className={'text-base'}>
             </div>
@@ -55,8 +59,15 @@ const ContractSessionsList: React.FC<IContractSessionsListProps> = ({
       </div>
       {
         (expanded && 
-          <div className={'grid grid-cols-2 w-2/3 mt-1 mb-1 rounded overflow-hidden shadow-lg text-white p-2'}>
+          <div className={'grid grid-cols-2 gap-2 w-2/3 mt-1 mb-1 rounded overflow-hidden shadow-lg text-white p-2'}>
             {getSessionCards()}
+          </div>
+        )
+      }
+      {
+        (addNew &&
+          <div className={'cursor-pointer flex w-2/3 mt-4 mb-1 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
+            <SessionAddContainer contractId={contractId} users={users ?? []} />
           </div>
         )
       }
