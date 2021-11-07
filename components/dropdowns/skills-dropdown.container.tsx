@@ -34,6 +34,7 @@ const SkillsDropdown: React.FC<ISkillsDropdownProps> = ({
       value={selectedItem}
       onSelect={(id) => onSelectSkill(data?.skills.find(a => a.id === id))}
       disabled={disabled}
+      defaultMessage={'Select Skills'}
     />
   );
 };

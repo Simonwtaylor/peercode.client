@@ -10,6 +10,10 @@ export interface IUsersResponse {
   users: IUser[];
 }
 
+export interface IUsersSearchResponse {
+  searchUsers?: IUser[];
+}
+
 export interface IUser {
   id: number;
   username: string;

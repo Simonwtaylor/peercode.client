@@ -42,3 +42,21 @@ query user($id: Int!) {
     }
   }
 `;
+
+export const usersSearchQuery = gql`
+query searchUsers ($searchUsersInput: SearchUsersModel!) {
+  searchUsers (searchUsersInput: $searchUsersInput) {
+    id
+    username
+    email
+    role
+    bio
+    github
+    twitter
+    website
+    mentor
+    uid
+    imageUrl
+  }
+}
+`;

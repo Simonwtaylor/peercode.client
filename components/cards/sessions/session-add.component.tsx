@@ -46,7 +46,6 @@ const SessionAdd: React.FC<ISessionAddProps> = ({
           </div>         
         </div>
       </div>
-     
     </>
   );
 };

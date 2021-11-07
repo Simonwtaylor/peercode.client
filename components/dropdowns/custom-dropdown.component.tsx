@@ -11,6 +11,7 @@ export interface ICustomDropdownProps {
   value?: number;
   onSelect: (id: number) => void;
   disabled?: boolean;
+  defaultMessage?: string;
 }
  
 const CustomDropdown: React.FC<ICustomDropdownProps> = ({
@@ -18,6 +19,7 @@ const CustomDropdown: React.FC<ICustomDropdownProps> = ({
   value,
   onSelect,
   disabled,
+  defaultMessage,
 }) => {
 
   const buildOptions = (): ReactNode[] => {
@@ -29,11 +31,11 @@ const CustomDropdown: React.FC<ICustomDropdownProps> = ({
       value={value}
       onChange={({ currentTarget }) => onSelect(+currentTarget.value)}
       onSelect={({ currentTarget }) => onSelect(+currentTarget.value)}
-      className={'text-black rounded'}
+      className={'text-black rounded w-full'}
       placeholder={'---Please select---'}
       disabled={disabled}
     >
-      <option unselectable={'on'}>Please Select an option</option>
+      <option unselectable={'on'}>{defaultMessage ?? 'Please Select an option'}</option>
       {buildOptions()}
     </select>
   );
