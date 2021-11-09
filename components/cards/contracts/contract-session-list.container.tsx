@@ -43,7 +43,7 @@ const ContractSessionsList: React.FC<IContractSessionsListProps> = ({
     <>
       <div
         onClick={() => setExpanded(!expanded)}
-        className={'cursor-pointer flex w-2/3 mt-4 mb-1 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}
+        className={'cursor-pointer flex w-2/3 my-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}
       >
         <div className={'flex-auto p-4'}>
           <div className={'my-1'}>
@@ -59,14 +59,14 @@ const ContractSessionsList: React.FC<IContractSessionsListProps> = ({
       </div>
       {
         (expanded && 
-          <div className={'grid grid-cols-2 gap-2 w-2/3 mt-1 mb-1 rounded overflow-hidden shadow-lg text-white p-2'}>
+          <div className={'grid grid-cols-2 gap-2 w-2/3 my-1 rounded overflow-hidden shadow-lg text-white p-2'}>
             {getSessionCards()}
           </div>
         )
       }
       {
         (addNew &&
-          <div className={'cursor-pointer flex w-2/3 mt-4 mb-1 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
+          <div className={'cursor-pointer flex w-2/3 mt-1 mb-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
             <SessionAddContainer contractId={contractId} users={users ?? []} />
           </div>
         )
