@@ -147,3 +147,30 @@ query contractHistories ($contractId: Int!) {
   }
 }
 `;
+
+export const getContractUsersQuery = gql`
+query contractUsers ($contractId: Int!) {
+  contractUsers (contractId: $contractId) {
+      id
+      isSigned
+      didCreate
+      isMentor
+      dateSigned
+      user {
+          id
+          username
+          email
+          role
+          bio
+          github
+          twitter
+          website
+          mentor
+          uid
+          imageUrl
+      }
+      userId
+      contractId
+  }
+}
+`;

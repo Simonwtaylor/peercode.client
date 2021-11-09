@@ -1,14 +1,14 @@
 import { useQuery } from '@apollo/client';
 import React, { useState } from 'react';
 import { VscAdd } from 'react-icons/vsc';
-import { getContractSessionsQuery, IContractSessionsResponse } from '../../../lib';
+import { getContractSessionsQuery, IContractSessionsResponse, IUserContract } from '../../../lib';
 import { SessionSlimCard } from '../sessions/';
 import SessionAddContainer from '../sessions/session-add.container';
  
 export interface IContractSessionsListProps {
   contractId: number;
   clickable: boolean;
-  users?: number[];
+  users?: IUserContract[];
 }
  
 const ContractSessionsList: React.FC<IContractSessionsListProps> = ({

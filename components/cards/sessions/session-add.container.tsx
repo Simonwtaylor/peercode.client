@@ -1,11 +1,11 @@
 import { useMutation } from '@apollo/client';
 import React from 'react'
-import { createSessionMutation, getContractSessionsQuery } from '../../../lib';
+import { createSessionMutation, getContractSessionsQuery, IUserContract } from '../../../lib';
 import SessionAdd from './session-add.component';
  
 export interface ISessionAddContainerProps {
   contractId: number;
-  users: number[];
+  users: IUserContract[];
 }
  
 const SessionAddContainer: React.FC<ISessionAddContainerProps> = ({
@@ -20,7 +20,7 @@ const SessionAddContainer: React.FC<ISessionAddContainerProps> = ({
         createSessionInput: {
           ...newSession,
           contractId,
-          users,
+          users: users.map((u) => u.userId),
           notes: "",
         },
       },
