@@ -59,7 +59,7 @@ const ContractSessionsList: React.FC<IContractSessionsListProps> = ({
       </div>
       {
         (expanded && 
-          <div className={'grid grid-cols-2 gap-2 w-2/3 my-1 rounded overflow-hidden shadow-lg text-white p-2'}>
+          <div className={'grid grid-cols-2 gap-2 w-2/3 my-1 rounded overflow-hidden text-white p-2'}>
             {getSessionCards()}
           </div>
         )

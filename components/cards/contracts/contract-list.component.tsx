@@ -17,6 +17,8 @@ const ContractList: React.FC<IContractListProps> = ({
         contract={contract}
         clickable={true}
         editable={false}
+        onSignContract={() => undefined}
+        showSignButton={false}
       />
     ));
   };

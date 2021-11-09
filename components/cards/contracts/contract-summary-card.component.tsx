@@ -1,9 +1,10 @@
 import dayjs from 'dayjs';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { VscBellDot, VscCircleSlash, VscEdit, VscFlame, VscRocket, VscSave, VscSymbolEvent } from 'react-icons/vsc';
+import { VscBellDot, VscCheck, VscCircleSlash, VscEdit, VscFlame, VscRocket, VscSave, VscSymbolEvent } from 'react-icons/vsc';
 import { SkillsCard } from '..';
-import { IContract, RouterEnums } from '../../../lib';
+import { Button } from '../..';
+import { IContract, IUserContract, RouterEnums } from '../../../lib';
 import { DatePickerInput, TextInput } from '../../inputs';
  
 export interface IContractSummaryCardProps {
@@ -11,6 +12,9 @@ export interface IContractSummaryCardProps {
   clickable: boolean;
   editable: boolean;
   onUpdateContract?: (newContract: IContract) => void;
+  currentUser?: IUserContract;
+  onSignContract: () => void;
+  showSignButton: boolean;
 }
  
 const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
@@ -18,6 +22,9 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
   clickable,
   editable,
   onUpdateContract,
+  currentUser,
+  onSignContract,
+  showSignButton,
 }) => {
   const [mode, setMode] = useState<'view'|'edit'>('view');
 
@@ -52,7 +59,7 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
       return (
         <div className={'bg-purple-500 w-full flex p-4 flex-row text-xl'}>
           <div className={'flex w-1/2'}>
-            <VscFlame className={'text-white text-lg mr-2 mt-1'} /> Proposal
+            <VscFlame className={'text-white text-lg mr-2 mt-1'} /> Proposal {(currentUser?.isSigned && '- Signed')}
           </div>
           <div className={'flex w-1/2 mt-1 flex-row-reverse text-sm'}>
             {dateRange}
@@ -86,6 +93,13 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
         </div>
       );
     }
+  };
+
+  const getSignButton = () => {
+    if (!currentUser?.isSigned && showSignButton) {
+      return <div className={'mt-6'}><Button onClick={onSignContract} icon={<VscCheck className={'text-white m4-1 inline'} />} colour={'green'} text={'Sign Contract'} /></div>
+    }
+    return <></>;
   };
 
   const getEditButton = () => {
@@ -124,9 +138,7 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
   };
 
   const handleStartDateChange = (newDate: Date) => {
-    
     if (dayjs(newDate).isAfter(editEndDate)) {
-      console.log("AFTER")
       setEditEndDate(newDate);
     }
     setEditStartDate(newDate);
@@ -156,6 +168,7 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
               <div className={'text-lg'}>
                 {sessionPrice && numberOfSessions && `${<b>Total Value:</b>} £${sessionPrice*numberOfSessions}`}
               </div>
+              {getSignButton()}
             </div>
           </div>
         </div>
