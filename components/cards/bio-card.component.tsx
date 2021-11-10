@@ -37,23 +37,16 @@ const BioCard: React.FC<IBioCardProps> = ({
               Bio
 
               {editable && <VscCircleSlash className={'inline float-right cursor-pointer'} onClick={() => setMode('view')} />}
+              {editable && <VscSave className={'inline float-right cursor-pointer mx-2'} onClick={() => {
+                onBioEditSave(editBio);
+                setMode('view');
+              }} />}
             </div>
             <div className={'text-base'}>
               <textarea
                 className={'text-black w-full min-h-full p-2 rounded'}
                 value={editBio}
                 onChange={({ currentTarget }) => setEditBio(currentTarget.value)}
-              />
-            </div>
-            <div>
-              <Button
-                onClick={() => {
-                  onBioEditSave(editBio);
-                  setMode('view');
-                }}
-                colour={'green'}
-                icon={<VscSave className="text-white m4-1 inline" />}   
-                text={'Save'}
               />
             </div>
           </div>

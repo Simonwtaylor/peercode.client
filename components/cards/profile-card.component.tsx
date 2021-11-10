@@ -58,39 +58,6 @@ const ProfileCard: React.FC<IProfileCardProps> = ({
     return <><VscBook className={'text-white text-lg mr-2 mt-1'} /> Learner</>;
   };
 
-  const getEditButton = () => {
-    if (mode === 'edit') {
-      return (
-        <>
-          <Button
-            onClick={() => {
-              onProfileEditSave({ 
-                username: editUsername,
-                email: editEmail,
-                role: editRole,
-                mentor: editMentor,
-                twitter: editTwitter,
-                github: editGithub,
-                website: editWebsite,
-              });
-
-              setMode('view');
-            }}
-            colour={'green'}
-            text={'Save'}
-            icon={<VscSave className="text-white m4-1 inline" />} 
-          />
-          <Button
-            onClick={() => setMode('view')}
-            colour={'red'}
-            text={'Cancel'}
-            icon={<VscCircleSlash className="text-white m4-1 inline" />} 
-          />
-        </>
-      );
-    }
-  };
-
   if (mode === 'view') {
     return (
       <div className={'flex flex-col w-2/3 my-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
@@ -153,6 +120,25 @@ const ProfileCard: React.FC<IProfileCardProps> = ({
   if (mode === 'edit') {
     return (
       <div className={'flex flex-col w-2/3 my-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
+        <div className={'w-full'}>
+          <div className={'text-xl font-bold m-4'}>
+            <VscCircleSlash className={'inline float-right cursor-pointer'} onClick={() => setMode('view')} />
+            <VscSave className={'inline float-right cursor-pointer mx-2'} onClick={() => {
+              onProfileEditSave({ 
+                username: editUsername,
+                email: editEmail,
+                role: editRole,
+                mentor: editMentor,
+                twitter: editTwitter,
+                github: editGithub,
+                website: editWebsite,
+              });
+
+                setMode('view');
+              }}
+            />
+          </div>
+        </div>
         <div className={'grid grid-cols-2 p-4'}>
           <div className={'w-11/12 my-2'}>
             <TextInput onChange={setEditUsername} value={editUsername} label={'Username'} />
@@ -175,9 +161,6 @@ const ProfileCard: React.FC<IProfileCardProps> = ({
           <div className={'w-11/12 my-2'}>
             <CheckboxInput onChange={setEditMentor} value={editMentor} label={'Mentor'} />
           </div>
-          {editable && <div className={'my-4'}>
-            {getEditButton()}
-          </div>}
         </div>
         <div className={'bg-blue-500 w-full flex p-2 flex-row text-xl'}>
           <div className={'flex w-full'}>

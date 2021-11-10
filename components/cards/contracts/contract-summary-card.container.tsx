@@ -71,7 +71,7 @@ const ContractSummaryCardContainer: React.FC<IContractSummaryCardContainer> = ({
         refetchQueries: [getContractQuery, getContractHistoryQuery, getContractUsersQuery],
       });
 
-      router.push(`/contracts`)
+      router.push('/contracts');
     }
   };
 

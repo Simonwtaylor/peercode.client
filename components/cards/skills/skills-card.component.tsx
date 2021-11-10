@@ -14,10 +14,10 @@ const SkillCards: React.FC<ISkillCardsProps> = ({
   onSkillRemove,
 }) => {
   const mapSkills = () => {
-    return skills.map(({ id, colour, name }) => 
+    return skills.map(({ id, name }) => 
       <div
         key={`skillscard${id}`}
-        className={`tracking-wider text-white bg-${colour}-700 px-2 text-sm rounded leading-loose font-semibold`}
+        className={'tracking-wider text-white bg-blue-700 px-2 text-sm rounded leading-loose font-semibold'}
         onClick={() => onSkillRemove && onSkillRemove(id)}
       >
         {name}
@@ -30,5 +30,5 @@ const SkillCards: React.FC<ISkillCardsProps> = ({
     <div className={'grid grid-cols-4 gap-2'}>{mapSkills()}</div>
   );
 };
- 
+
 export default SkillCards;

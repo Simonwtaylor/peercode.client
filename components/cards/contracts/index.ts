@@ -5,3 +5,4 @@ export { default as ContractList } from './contract-list.component';
 export { default as ContractSessionList } from './contract-session-list.container';
 export { default as ContractSummaryCard } from './contract-summary-card.component';
 export { default as ContractSummaryCardContainer } from './contract-summary-card.container';
+export { default as CreateContractContainer } from './create-contract.container';

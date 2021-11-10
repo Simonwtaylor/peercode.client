@@ -32,12 +32,12 @@ const ContractHistory: React.FC<IContractHistoryProps> = ({ contractHistories })
             <div className={'flex-auto text-lg p-4'}>
               <span className={'block w-full'}>{message}</span>
               {
-              (createdAt && 
-                <span className={'block text-xs w-full'}>
-                  {dayjs(createdAt).format('ddd, MMM D, YYYY h:mm A')}
-                </span>
-              )
-            }
+                (createdAt && 
+                  <span className={'block text-xs w-full'}>
+                    {dayjs(createdAt).format('ddd, MMM D, YYYY h:mm A')}
+                  </span>
+                )
+              }
             </div>
             
           </div>

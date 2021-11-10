@@ -19,8 +19,8 @@ const CreateContract: React.FC<ICreateContractProps> = ({
   const [description, setDescription] = useState('');
 
   useEffect(() => {
-
-  }, [refresh])
+    console.log('refreshing');
+  }, [refresh]);
 
   return (
     <>
@@ -42,22 +42,22 @@ const CreateContract: React.FC<ICreateContractProps> = ({
           />
         </div>
         <div className={'grid grid-cols-2 p-4 my-1'}>
-          <div className={'my-1'}>
+          <div className={'w-11/12 my-2'}>
             <TextInput onChange={setName} value={name} label={'Name'} />
           </div>
-          <div className={'my-1'}>
+          <div className={'w-11/12 my-2'}>
             <TextInput onChange={setDescription} value={description} label={'Description'} />
           </div>
-          <div className={'my-1'}>
+          <div className={'w-11/12 my-2'}>
             <DatePickerInput date={startDate} onDatePickerChange={setStartDate} label={'Start Date'} />
           </div>
-          <div className={'my-1'}>
+          <div className={'w-11/12 my-2'}>
             <DatePickerInput startDate={startDate} date={endDate} onDatePickerChange={setEndDate} label={'End Date'}  />
           </div>         
         </div>
-        <div className={'p-4 mb-2'}>
-         <span className={'w-full block'}>Skills</span>
-          <div className={'my-2'}>
+        <div className={'w-1/2 p-4 mb-2'}>
+          <span className={'w-full block'}>Skills</span>
+          <div className={'w-11/12 my-2'}>
             <SkillsDropdown
               onSelectSkill={(skill?: ISkill) => {
                 if (skill && !skills.find(a => a.id === skill?.id)) {

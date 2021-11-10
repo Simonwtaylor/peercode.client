@@ -1,14 +1,9 @@
 import { useRouter } from 'next/router';
-import React, { useContext } from 'react'
-import { Layout } from '../../../components';
-import CreateContractContainer from '../../../components/cards/contracts/create-contract.container';
+import React, { useContext } from 'react';
+import { Layout, CreateContractContainer } from '../../../components';
 import { NavContext } from '../../../lib';
  
-export interface IContractCreatePageProps {
- 
-}
- 
-const ContractCreatePage: React.FC<IContractCreatePageProps> = () => {
+const ContractCreatePage: React.FC = () => {
   const { userId } = useContext(NavContext);
   const router = useRouter();
   const otherUserId = +(router.query?.userId as string ?? '') ?? 0;

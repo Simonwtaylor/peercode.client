@@ -1,5 +1,5 @@
 import { useMutation } from '@apollo/client';
-import React from 'react'
+import React from 'react';
 import { createSessionMutation, getContractSessionsQuery, IUserContract } from '../../../lib';
 import SessionAdd from './session-add.component';
  
@@ -21,7 +21,7 @@ const SessionAddContainer: React.FC<ISessionAddContainerProps> = ({
           ...newSession,
           contractId,
           users: users.map((u) => u.userId),
-          notes: "",
+          notes: '',
         },
       },
       refetchQueries: [getContractSessionsQuery],

@@ -37,10 +37,6 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
   const [editName, setEditName] = useState(name);
   const [editDescription, setEditDescription] = useState(description);
 
-  useEffect(() => {
-
-  }, [editStartDate]);
-
   const getDateRange = () => {
     let res = '';
     if (startDate) {
@@ -97,7 +93,18 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
 
   const getSignButton = () => {
     if (!currentUser?.isSigned && showSignButton) {
-      return <div className={'mt-6'}><Button onClick={onSignContract} icon={<VscCheck className={'text-white m4-1 inline'} />} colour={'green'} text={'Sign Contract'} /></div>
+      return (
+        <div
+          className={'mt-6'}
+        >
+          <Button
+            onClick={onSignContract}
+            icon={<VscCheck className={'text-white m4-1 inline'} />}
+            colour={'green'}
+            text={'Sign Contract'}
+          />
+        </div>
+      );
     }
     return <></>;
   };
@@ -133,7 +140,7 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
             />
           </span>
         </>
-      )
+      );
     }
   };
 
@@ -172,7 +179,7 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
             </div>
           </div>
         </div>
-      )
+      );
     }
 
     if (mode === 'edit') {
@@ -191,7 +198,7 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
             <DatePickerInput startDate={editStartDate} date={editEndDate} onDatePickerChange={setEditEndDate} label={'End Date'}  />
           </div>
         </div>
-      )
+      );
     }
   };
 
