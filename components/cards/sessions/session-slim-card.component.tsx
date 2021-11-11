@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { VscBellDot, VscCalendar } from 'react-icons/vsc';
+import { VscBellDot, VscCalendar, VscFlame, VscPass } from 'react-icons/vsc';
 import { ISession, RouterEnums } from '../../../lib';
  
 export interface ISessionSlimCardProps {
@@ -35,6 +35,32 @@ const SessionSlimCard: React.FC<ISessionSlimCardProps> = ({
         <div className={'bg-purple-500 w-full flex p-4 flex-row text-xl'}>
           <div className={'flex w-1/2'}>
             <VscCalendar className={'text-white text-lg mr-2 mt-1'} /> Scheduled
+          </div>
+          <div className={'flex w-1/2 mt-1 flex-row-reverse text-sm'}>
+            {dateRange}
+          </div>
+        </div>
+      );
+    }
+
+    if (status === 'In Progress') {
+      return (
+        <div className={'bg-green-500 w-full flex p-4 flex-row text-xl'}>
+          <div className={'flex w-1/2'}>
+            <VscFlame className={'text-white text-lg mr-2 mt-1'} /> In Progress
+          </div>
+          <div className={'flex w-1/2 mt-1 flex-row-reverse text-sm'}>
+            {dateRange}
+          </div>
+        </div>
+      );
+    }
+
+    if (status === 'Finished') {
+      return (
+        <div className={'bg-blue-500 w-full flex p-4 flex-row text-xl'}>
+          <div className={'flex w-1/2'}>
+            <VscPass className={'text-white text-lg mr-2 mt-1'} /> Finished
           </div>
           <div className={'flex w-1/2 mt-1 flex-row-reverse text-sm'}>
             {dateRange}

@@ -59,3 +59,18 @@ query contractSessions ($contractId: Int!) {
   }
 }
 `;
+
+export const getSessionDetailQuery = gql`
+query sessionDetail ($id: Int!) {
+  sessionDetail (id: $id) {
+    id
+    discordChannelId
+    discordChannelName
+    discordChannelPassword
+    discordInviteLink
+    callStarted
+    callEnded
+    sessionId
+  }
+}
+`;
