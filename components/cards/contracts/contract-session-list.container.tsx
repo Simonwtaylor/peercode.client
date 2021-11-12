@@ -67,7 +67,15 @@ const ContractSessionsList: React.FC<IContractSessionsListProps> = ({
       {
         (addNew &&
           <div className={'cursor-pointer flex w-2/3 mt-1 mb-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
-            <SessionAddContainer contractId={contractId} users={users ?? []} />
+            <SessionAddContainer
+              contractId={contractId}
+              users={users ?? []}
+              onCancelSessionAdd={() => setAddNew(false)}
+              onSessionAdded={() => {
+                setExpanded(true);
+                setAddNew(false);
+              }}
+            />
           </div>
         )
       }

@@ -63,6 +63,7 @@ export async function getServerSideProps(context: any) {
     variables: {
       contractId: +context?.params?.id ?? 1,
     },
+    fetchPolicy: 'network-only',
   });
 
   return {

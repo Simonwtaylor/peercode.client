@@ -61,8 +61,8 @@ query contractSessions ($contractId: Int!) {
 `;
 
 export const getSessionDetailQuery = gql`
-query sessionDetail ($id: Int!) {
-  sessionDetail (id: $id) {
+query sessionDetail ($sessionId: Int!) {
+  sessionDetail (sessionId: $sessionId) {
     id
     discordChannelId
     discordChannelName

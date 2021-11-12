@@ -123,16 +123,18 @@ const ProfileCard: React.FC<IProfileCardProps> = ({
         <div className={'w-full'}>
           <div className={'text-xl font-bold m-4'}>
             <VscCircleSlash className={'inline float-right cursor-pointer'} onClick={() => setMode('view')} />
-            <VscSave className={'inline float-right cursor-pointer mx-2'} onClick={() => {
-              onProfileEditSave({ 
-                username: editUsername,
-                email: editEmail,
-                role: editRole,
-                mentor: editMentor,
-                twitter: editTwitter,
-                github: editGithub,
-                website: editWebsite,
-              });
+            <VscSave
+              className={'inline float-right cursor-pointer mx-2'}
+              onClick={() => {
+                onProfileEditSave({ 
+                  username: editUsername,
+                  email: editEmail,
+                  role: editRole,
+                  mentor: editMentor,
+                  twitter: editTwitter,
+                  github: editGithub,
+                  website: editWebsite,
+                });
 
                 setMode('view');
               }}

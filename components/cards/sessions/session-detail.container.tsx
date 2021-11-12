@@ -1,6 +1,13 @@
 import { useMutation, useQuery } from '@apollo/client';
 import React from 'react';
-import { endSessionMutation, getSessionDetailQuery, getSessionQuery, getSessionsForUserQuery, ISessionDetailResponse, startSessionMutation } from '../../../lib';
+import {
+  endSessionMutation,
+  getSessionDetailQuery,
+  getSessionQuery,
+  getSessionsForUserQuery,
+  ISessionDetailResponse,
+  startSessionMutation,
+} from '../../../lib';
 import SessionDetail from './session-detail.component';
  
 export interface ISessionDetailContainerProps {
@@ -12,7 +19,7 @@ const SessionDetailContainer: React.FC<ISessionDetailContainerProps> = ({ sessio
     getSessionDetailQuery,
     {
       variables: {
-        id: sessionId,
+        sessionId,
       },
     }
   );
@@ -31,19 +38,19 @@ const SessionDetailContainer: React.FC<ISessionDetailContainerProps> = ({ sessio
   const handleStartSession = () => {
     startSession({
       variables: {
-        id: sessionId,
+        sessionId,
       },
       refetchQueries: [getSessionDetailQuery, getSessionQuery, getSessionsForUserQuery]
-    })
+    });
   };
 
   const handleEndSession = () => {
     endSession({
       variables: {
-        id: sessionId,
+        sessionId,
       },
       refetchQueries: [getSessionDetailQuery, getSessionQuery, getSessionsForUserQuery]
-    })
+    });
   };
 
   return (

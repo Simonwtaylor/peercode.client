@@ -47,7 +47,7 @@ const SessionDetail: React.FC<ISessionDetailProps> = ({
           className={'w-full block'}
         >
           <b>Room Name:</b> 
-          {(sessionDetail.discordChannelName !== ""  && sessionDetail.discordChannelName !== null) && sessionDetail.discordChannelName}
+          {(sessionDetail.discordChannelName !== ''  && sessionDetail.discordChannelName !== null) && sessionDetail.discordChannelName}
         </span>
       );
     }
@@ -57,7 +57,7 @@ const SessionDetail: React.FC<ISessionDetailProps> = ({
     if (sessionDetail.callStarted && !sessionDetail.callEnded) {
       return (
         <>
-          {(sessionDetail.discordInviteLink !== ""  && sessionDetail.discordInviteLink !== null) && 
+          {(sessionDetail.discordInviteLink !== ''  && sessionDetail.discordInviteLink !== null) && 
             <div className={'my-2'}>
               <Button
                 colour={'blue'}

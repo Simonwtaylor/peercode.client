@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { VscSave } from 'react-icons/vsc';
+import { VscCircleSlash, VscSave } from 'react-icons/vsc';
 import { DatePickerInput, TextInput } from '../..';
  
 export interface ISessionAddProps {
   onSessionAdd: (newSession: any) => void;
+  onCancelSessionAdd: () => void;
 }
  
 const SessionAdd: React.FC<ISessionAddProps> = ({
   onSessionAdd,
+  onCancelSessionAdd,
 }) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -20,8 +22,12 @@ const SessionAdd: React.FC<ISessionAddProps> = ({
         <div className={'text-xl font-bold my-2 p-4'}>
           New Session
 
-          <VscSave
+          <VscCircleSlash
             className={'inline float-right cursor-pointer'}
+            onClick={() => onCancelSessionAdd()}
+          />
+          <VscSave
+            className={'inline float-right cursor-pointer mr-2'}
             onClick={() => onSessionAdd({
               startDate,
               endDate,
@@ -30,6 +36,7 @@ const SessionAdd: React.FC<ISessionAddProps> = ({
               statusId: 1,
             })}
           />
+          
         </div>
         <div className={'grid grid-cols-2 p-4 my-1'}>
           <div className={'w-11/12 my-2'}>

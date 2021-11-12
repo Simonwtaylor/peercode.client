@@ -6,11 +6,15 @@ import SessionAdd from './session-add.component';
 export interface ISessionAddContainerProps {
   contractId: number;
   users: IUserContract[];
+  onCancelSessionAdd: () => void;
+  onSessionAdded: () => void;
 }
  
 const SessionAddContainer: React.FC<ISessionAddContainerProps> = ({
   contractId,
   users,
+  onCancelSessionAdd,
+  onSessionAdded,
 }) => {
   const [createSession] = useMutation(createSessionMutation);
 
@@ -26,10 +30,11 @@ const SessionAddContainer: React.FC<ISessionAddContainerProps> = ({
       },
       refetchQueries: [getContractSessionsQuery],
     });
+    onSessionAdded();
   };
   
   return (
-    <SessionAdd onSessionAdd={handleSessionAdd} />
+    <SessionAdd onSessionAdd={handleSessionAdd} onCancelSessionAdd={onCancelSessionAdd} />
   );
 };
  

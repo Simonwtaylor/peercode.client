@@ -29,6 +29,7 @@ const ContractSummaryCardContainer: React.FC<IContractSummaryCardContainer> = ({
     variables: {
       id: contractId,
     },
+    fetchPolicy: 'network-only',
   });
 
   const [updateContract] = useMutation(updateContractMutation);
