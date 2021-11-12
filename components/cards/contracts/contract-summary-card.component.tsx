@@ -64,7 +64,7 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
       );
     }
 
-    if (status === 'active') {
+    if (status === 'Active') {
       return (
         <div className={'bg-blue-500 w-full flex p-4 flex-row text-xl'}>
           <div className={'flex w-1/2'}>
