@@ -25,6 +25,8 @@ export interface IUser {
   github?: string;
   bio: string;
   mentor: boolean;
+  imageUrl?: string;
+  discordId?: string;
 }
 
 export interface IUserBio {

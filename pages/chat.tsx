@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import ChatListContainer from '../components/cards/chat/chat-list.container';
 import Layout from '../components/hoc/with-layout.component';
+import { NavContext } from '../lib';
 
 const ChatPage: React.FC = () => {
+  const { userId } = useContext(NavContext);
+
   return (
     <Layout>
-      ChatPage Works!
+      <ChatListContainer userId={userId} />
     </Layout>
   );
 };

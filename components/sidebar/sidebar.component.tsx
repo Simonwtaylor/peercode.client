@@ -53,10 +53,10 @@ const Sidebar: React.FC = () => {
           </div>
         </li>
         <li
-          onClick={() => handleNavigation(RouterEnums.CHAT)}
+          onClick={() => handleNavigation(RouterEnums.CHATS)}
           className={'cursor-pointer'}
         >
-          <div className={`${activePage === RouterEnums.CHAT && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
+          <div className={`${activePage === RouterEnums.CHATS && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
             <VscComment className="text-gray-600 ml-1" />
             <span>Chat</span>
           </div>

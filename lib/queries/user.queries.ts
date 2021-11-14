@@ -13,6 +13,7 @@ export const getUsersQuery = gql`
       github
       bio
       mentor
+      imageUrl
   }
 }
 `;
@@ -30,6 +31,7 @@ query user($id: Int!) {
       github
       bio
       mentor
+      imageUrl
     }
   }
 `;
