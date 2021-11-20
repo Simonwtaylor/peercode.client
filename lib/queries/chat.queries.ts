@@ -35,6 +35,13 @@ query userChats ($id: Int!) {
   userChats (id: $id) {
     id
     name
+    userChats {
+      user {
+        id
+        username
+        imageUrl
+      }
+    }
   }
 }
 `;

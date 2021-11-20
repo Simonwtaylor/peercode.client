@@ -4,6 +4,9 @@ export interface IChat {
   id: number;
   name: string;
   messages: IMessage[];
+  userChats?: {
+    user: IUser;
+  }[];
 }
 
 export interface IMessage {

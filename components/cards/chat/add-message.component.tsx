@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, TextInput } from '../..';
+import { TextInput } from '../..';
  
 export interface IAddMessageProps {
   onSendMessage: (content: string) => void;
@@ -8,17 +8,24 @@ export interface IAddMessageProps {
 const AddMessage: React.FC<IAddMessageProps> = ({ onSendMessage }) => {
   const [content, setContent] = useState('');
   return (
-    <>
-      <TextInput onChange={setContent} value={content} label={'Content'} placeholder={'Please type your message'} />
-      <Button
-        colour={'green'}
-        text={'Send'}
-        onClick={() => {
-          onSendMessage(content);
-          setContent('');
-        }}
-      />
-    </>
+    <div
+      className={'flex flex-row w-2/3 my-4'}
+    >
+      <div
+        className={'w-full'}
+      >
+        <TextInput
+          onChange={setContent}
+          value={content}
+          placeholder={'Please type your message'}
+          classes={''}
+          onEnterSubmit={() => {
+            onSendMessage(content);
+            setContent(''); 
+          }}
+        />
+      </div>
+    </div>
   );
 };
  

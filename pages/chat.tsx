@@ -8,7 +8,11 @@ const ChatPage: React.FC = () => {
 
   return (
     <Layout>
-      <ChatListContainer userId={userId} />
+      <div className={'w-full items-center content-center justify-items-center place-items-center m-2 p-2 grid'}>
+        <div className={'grid grid-cols-2 gap-6 w-full'}>
+          <ChatListContainer userId={userId} />
+        </div>
+      </div>
     </Layout>
   );
 };

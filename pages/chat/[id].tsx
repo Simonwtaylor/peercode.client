@@ -12,8 +12,10 @@ const ChatPage: React.FC = () => {
 
   return (
     <Layout>
-      <MessagesContainer chatId={id} />
-      <AddMessageContainer userId={userId} chatId={id} />
+      <div className={'w-full items-center content-center justify-items-center place-items-center m-2 p-2 grid'}>
+        <MessagesContainer chatId={id} />
+        <AddMessageContainer userId={userId} chatId={id} />
+      </div>
     </Layout>
   );
 };
