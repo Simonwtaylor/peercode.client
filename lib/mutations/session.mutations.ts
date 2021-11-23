@@ -9,16 +9,16 @@ mutation createSession ($createSessionInput: CreateSessionModel!) {
 `;
 
 export const startSessionMutation = gql`
-mutation startSession ($sessionId: Int!) {
-  startSession (sessionId: $sessionId) {
+mutation startSession ($id: Int!) {
+  startSession (id: $id) {
     id
   }
 }
 `;
 
 export const endSessionMutation = gql`
-mutation endSession ($sessionId: Int!) {
-  endSession (sessionId: $sessionId) {
+mutation endSession ($id: Int!) {
+  endSession (id: $id) {
     id
   }
 }

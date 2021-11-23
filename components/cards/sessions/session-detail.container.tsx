@@ -2,10 +2,9 @@ import { useMutation, useQuery } from '@apollo/client';
 import React from 'react';
 import {
   endSessionMutation,
-  getSessionDetailQuery,
   getSessionQuery,
   getSessionsForUserQuery,
-  ISessionDetailResponse,
+  ISessionResponse,
   startSessionMutation,
 } from '../../../lib';
 import SessionDetail from './session-detail.component';
@@ -15,11 +14,11 @@ export interface ISessionDetailContainerProps {
 }
  
 const SessionDetailContainer: React.FC<ISessionDetailContainerProps> = ({ sessionId }) => {
-  const { data, loading, error } = useQuery<ISessionDetailResponse>(
-    getSessionDetailQuery,
+  const { data, loading, error } = useQuery<ISessionResponse>(
+    getSessionQuery,
     {
       variables: {
-        sessionId,
+        id: sessionId,
       },
     }
   );
@@ -38,23 +37,23 @@ const SessionDetailContainer: React.FC<ISessionDetailContainerProps> = ({ sessio
   const handleStartSession = () => {
     startSession({
       variables: {
-        sessionId,
+        id: sessionId,
       },
-      refetchQueries: [getSessionDetailQuery, getSessionQuery, getSessionsForUserQuery]
+      refetchQueries: [getSessionQuery, getSessionsForUserQuery]
     });
   };
 
   const handleEndSession = () => {
     endSession({
       variables: {
-        sessionId,
+        id: sessionId,
       },
-      refetchQueries: [getSessionDetailQuery, getSessionQuery, getSessionsForUserQuery]
+      refetchQueries: [getSessionQuery, getSessionsForUserQuery]
     });
   };
 
   return (
-    <SessionDetail sessionDetail={data?.sessionDetail} onSessionStart={handleStartSession} onSessionEnd={handleEndSession} />
+    <SessionDetail sessionDetail={data?.session} onSessionStart={handleStartSession} onSessionEnd={handleEndSession} />
   );
 };
  

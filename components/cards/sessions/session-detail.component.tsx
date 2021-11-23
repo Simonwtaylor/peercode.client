@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button } from '../..';
-import { ISessionDetail } from '../../../lib';
+import { ISession } from '../../../lib';
  
 export interface ISessionDetailProps {
-  sessionDetail: ISessionDetail;
+  sessionDetail: ISession;
   onSessionStart: () => void;
   onSessionEnd: () => void;
 }
