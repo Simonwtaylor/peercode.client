@@ -1,3 +1,4 @@
+import { useUser } from '@auth0/nextjs-auth0';
 import React, { useContext } from 'react';
 import ChatListContainer from '../components/cards/chat/chat-list.container';
 import Layout from '../components/hoc/with-layout.component';
@@ -5,6 +6,7 @@ import { NavContext } from '../lib';
 
 const ChatPage: React.FC = () => {
   const { userId } = useContext(NavContext);
+  const { user,  } = useUser();
 
   return (
     <Layout>

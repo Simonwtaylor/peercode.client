@@ -9,12 +9,14 @@ export interface IContractSessionsListProps {
   contractId: number;
   clickable: boolean;
   users?: IUserContract[];
+  signed?: boolean;
 }
  
 const ContractSessionsList: React.FC<IContractSessionsListProps> = ({
   contractId,
   clickable,
   users,
+  signed,
 }) => {
   const [expanded, setExpanded] = useState(true);
   const [addNew, setAddNew] = useState(false);
@@ -50,7 +52,7 @@ const ContractSessionsList: React.FC<IContractSessionsListProps> = ({
             <div className={'text-xl font-bold my-2'}>
               Sessions
 
-              <VscAdd className={'inline float-right cursor-pointer'} onClick={() => setAddNew(true)} />
+              {signed && <VscAdd className={'inline float-right cursor-pointer'} onClick={() => setAddNew(true)} />}
             </div>
             <div className={'text-base'}>
             </div>

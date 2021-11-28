@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import NavMenu from '../nav/nav-menu.component';
 import Sidebar from '../sidebar/sidebar.component';
+import { WithLogin } from './index';
 
 const Layout: React.FC = ({ children }) => {
   return (
@@ -15,7 +16,9 @@ const Layout: React.FC = ({ children }) => {
       <div className={'w-10/12 flex flex-col'}>
         <NavMenu />
         <div className={'p-5 text-white'}>
-          {children}
+          <WithLogin>
+            {children}
+          </WithLogin>
         </div>
       </div>
     </div>

@@ -11,11 +11,12 @@ import {
 } from 'react-icons/vsc';
 import { useRouter } from 'next/router';
 import { NavContext, RouterEnums } from '../../lib';
+import { useUser } from '@auth0/nextjs-auth0';
 
 const Sidebar: React.FC = () => {
   const history = useRouter();
   const { activePage, updateActivePageInContext } = useContext(NavContext);
-
+  const { user } = useUser();
   const handleNavigation = (route: RouterEnums) => {
     updateActivePageInContext(route);
     history.push(route);
@@ -27,9 +28,9 @@ const Sidebar: React.FC = () => {
         className="flex items-center space-x-4 p-2 mb-5 cursor-pointer"
         onClick={() => handleNavigation(RouterEnums.SETTINGS)}
       >
-        <img className="h-12 rounded-full" alt={''} src={'https://lh3.googleusercontent.com/ogw/ADea4I6VLmj2JDCRaAILO3eM5-cHw-4PbQZkJMCwTj6a=s64-c-mo'} />
+        {user?.picture && <img className="h-12 rounded-full" alt={''} src={user?.picture} />}
         <div>
-          <h6 className="font-semibold text-sm text-gray-700 capitalize font-poppins tracking-wide">{'Simon Taylor'}</h6>
+          <h6 className="font-semibold text-sm text-gray-700 capitalize font-poppins tracking-wide">{user?.name}</h6>
           <VscVerified className={'text-green-500'} />
         </div>
       </div>
