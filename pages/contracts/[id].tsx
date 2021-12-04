@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { VscCloudUpload } from 'react-icons/vsc';
 import client from '../../apollo-client';
 import { ContractSessionList, ContractSummaryCardContainer, Layout, ContractHistoryContainer } from '../../components/';
-import { getContractUsersQuery, IUserContract, NavContext } from '../../lib';
+import { getContractUsersQuery, IUserContract, UserContext } from '../../lib';
 
 interface IContractPageProps {
   users?: IUserContract[];
@@ -12,10 +12,10 @@ interface IContractPageProps {
 const ContractPage: React.FC<IContractPageProps> = ({
   users,
 }) => {
-  const { userId } = useContext(NavContext);
+  const { user } = useContext(UserContext);
   const router = useRouter();
   const id = +(router.query?.id as string ?? '') ?? 0;
-  const currentUser = users?.find(a => a.userId === userId);
+  const currentUser = users?.find(a => a.userId === user.id);
 
   return (
     <Layout>

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { VscCircleSlash, VscSave } from 'react-icons/vsc';
 import { ViewCard } from '.';
-import { Button } from '..';
  
 export interface IBioCardProps {
-  bio: string;
+  bio?: string;
   editable: boolean;
   onBioEditSave: (newBio: string) => void;
 }
@@ -15,13 +14,13 @@ const BioCard: React.FC<IBioCardProps> = ({
   onBioEditSave,
 }) => {
   const [mode, setMode] = useState<'view'|'edit'>('view');
-  const [editBio, setEditBio] = useState(bio);
+  const [editBio, setEditBio] = useState(bio ?? '');
 
   if (mode === 'view') {
     return (
       <ViewCard
         label={'Bio'}
-        value={bio}
+        value={bio ?? ''}
         editable={editable}
         onEditClick={() => setMode('edit')}
       />

@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import React, { useContext, useEffect, useRef } from 'react';
-import { IMessage, IUser, NavContext } from '../../../lib';
-const relativeTime = require('dayjs/plugin/relativeTime');
+import { IMessage, IUser, UserContext } from '../../../lib';
+const relativeTime = require('dayjs/plugin/relativeTime'); {/* eslint-disable-line */}
 dayjs.extend(relativeTime);
  
 export interface IMessagesProps {
@@ -19,12 +19,12 @@ export interface IMessageGroup {
 const Messages: React.FC<IMessagesProps> = ({
   messages,
 }) => {
-  const { userId } = useContext(NavContext);
+  const { user } = useContext(UserContext);
   const latestRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     latestRef.current?.scrollIntoView({});
-  }, [messages])
+  }, [messages]);
 
   const groupMessages = () => {
     const groups: IMessageGroup[] = [];
@@ -35,7 +35,7 @@ const Messages: React.FC<IMessagesProps> = ({
           id: 1,
           user: message.user,
           messages: [message],
-          currentUser: (message.user?.id === userId),
+          currentUser: (message.user?.id === user.id),
           ref: (i === (messages.length - 1)) ? latestRef : undefined,
         });
         return;
@@ -54,7 +54,7 @@ const Messages: React.FC<IMessagesProps> = ({
         id: groups.length + 1,
         user: message.user,
         messages: [message],
-        currentUser: (message.user?.id === userId),
+        currentUser: (message.user?.id === user.id),
         ref: (i === (messages.length - 1)) ? latestRef : undefined,
       });
     });
@@ -69,30 +69,30 @@ const Messages: React.FC<IMessagesProps> = ({
         ref={ref}
         className={'flex w-2/3 my-4 rounded-xl overflow-hidden shadow-lg text-white p-4'}
       >
-          <div>
-            <img
-              src={user?.imageUrl}
-              alt=""
-              className="inset-0 m-auto self-center object-cover rounded-full"
-              height="50"
-              width="50"
-            />
-          </div>
-          <div className={'grid grid-cols-1'}>
+        <div>
+          <img
+            src={user?.imageUrl}
+            alt=""
+            className="inset-0 m-auto self-center object-cover rounded-full"
+            height="50"
+            width="50"
+          />
+        </div>
+        <div className={'grid grid-cols-1'}>
           {
-            (messages.map(({ datePosted, content }) => {
+            (messages.map(({ datePosted, content }, i) => {
               const newDate: any = dayjs(datePosted);
 
               return (
-                <div className={'my-2 mx-4 w-full block'}>
+                <div className={'my-2 mx-4 w-full block'} key={`message${i}`}>
                   <span className="w-full block text-xl">{content}</span>
                   <span className="w-full block">{newDate.fromNow()}</span> {/* eslint-disable-line */}
                 </div>
-              )
+              );
             }))
           }
-          </div>
         </div>
+      </div>
     ));
   };
 

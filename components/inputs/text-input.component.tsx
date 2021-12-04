@@ -21,7 +21,7 @@ const TextInput: React.FC<ITextInputProps> = ({
 }) => {
   const onKeyPressHandler = (e: any) => {
     console.log(e);
-    if (e.key === "Enter" && !e.shiftKey) {
+    if (e.key === 'Enter' && !e.shiftKey) {
       onEnterSubmit();
     }
   };

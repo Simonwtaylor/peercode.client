@@ -3,11 +3,7 @@ import dynamic from 'next/dynamic';
 import { useUser } from '@auth0/nextjs-auth0';
 import Button from '../buttons/button.component';
  
-export interface IWithLoginProps {
- 
-}
- 
-const WithLogin: React.FC<IWithLoginProps> = ({
+const WithLogin: React.FC = ({
   children,
 }) => {
   const { user } = useUser();

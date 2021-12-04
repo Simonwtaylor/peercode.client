@@ -1,35 +1,37 @@
+import { useQuery } from '@apollo/client';
+import { useUser } from '@auth0/nextjs-auth0';
 import React, { createContext, useState } from 'react';
+import { getUserByUidQuery, IUser, IUserByUidResponse } from '..';
 
 interface IUserContext {
-	token: string;
-	updateTokenInContext: () => void;
+	user: IUser;
 }
 
 const UserContext = createContext<IUserContext>({
-  token: '',
-  updateTokenInContext: () => console.log(),
+  user: {} as any,
 });
-
+ 
 const UserContextProvider = ({ children }: any) => {
-  const [token, setToken] = useState('');
+  const { user } = useUser();
+  const [dbUser, setDbUser] = useState<any>();
 
-  const updateTokenInContext = () => {
-    fetch('http://localhost:3000/api/graphql')
-      .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        setToken(res?.accessToken)
-      });
-  };
+  if (!user) { 
+    return <>{children}</>;
+  }
+
+  if (!dbUser) {
+    fetch(`http://localhost:5001/users/${user?.sub}`)
+      .then((data) => data.json())
+      .then((data) => setDbUser(data));
+  }
 
   return (
     <UserContext.Provider value={{
-      token,
-      updateTokenInContext,
+      user: dbUser,
     }}>
       {children}
     </UserContext.Provider>
   );
 };
-
+ 
 export { UserContextProvider, UserContext };

@@ -143,22 +143,22 @@ const ProfileCard: React.FC<IProfileCardProps> = ({
         </div>
         <div className={'grid grid-cols-2 p-4'}>
           <div className={'w-11/12 my-2'}>
-            <TextInput onChange={setEditUsername} value={editUsername} label={'Username'} />
+            <TextInput onEnterSubmit={() => undefined} onChange={setEditUsername} value={editUsername} label={'Username'} />
           </div>
           <div className={'w-11/12 my-2'}>
-            <TextInput onChange={setEditEmail} value={editEmail} label={'Email'} />
+            <TextInput onEnterSubmit={() => undefined} onChange={setEditEmail} value={editEmail} label={'Email'} />
           </div>
           <div className={'w-11/12 my-2'}>
-            <TextInput onChange={setEditRole} value={editRole} label={'Role'} />
+            <TextInput onEnterSubmit={() => undefined} onChange={setEditRole} value={editRole} label={'Role'} />
           </div>
           <div className={'w-11/12 my-2'}>
-            <TextInput onChange={setEditWebsite} value={editWebsite} label={'Website'} />
+            <TextInput onEnterSubmit={() => undefined} onChange={setEditWebsite} value={editWebsite} label={'Website'} />
           </div>
           <div className={'w-11/12 my-2'}>
-            <TextInput onChange={setEditGithub} value={editGithub} label={'Github'} />
+            <TextInput onEnterSubmit={() => undefined} onChange={setEditGithub} value={editGithub} label={'Github'} />
           </div>
           <div className={'w-11/12 my-2'}>
-            <TextInput onChange={setEditTwitter} value={editTwitter} label={'Twitter'} />
+            <TextInput onEnterSubmit={() => undefined} onChange={setEditTwitter} value={editTwitter} label={'Twitter'} />
           </div>
           <div className={'w-11/12 my-2'}>
             <CheckboxInput onChange={setEditMentor} value={editMentor} label={'Mentor'} />

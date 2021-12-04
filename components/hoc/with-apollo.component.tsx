@@ -1,16 +1,16 @@
 import { ApolloClient, ApolloProvider, createHttpLink, InMemoryCache } from '@apollo/client';
 import React, { useContext, useEffect } from 'react';
 import { setContext } from '@apollo/client/link/context';
-import { UserContext } from '../../lib/contexts/user.context';
+import { TokenContext } from '../../lib/contexts/token.context';
 
 const WithApollo: React.FC = ({ children }) => {
-  const { token, updateTokenInContext } = useContext(UserContext);
+  const { token, updateTokenInContext } = useContext(TokenContext);
 
   useEffect(() => {
-    if (token === "") {
+    if (token === '') {
       updateTokenInContext();
     }
-  }, [token])
+  }, [token]);
 
   const httpLink = createHttpLink({
     uri: 'http://localhost:5001/graphql',
@@ -20,16 +20,16 @@ const WithApollo: React.FC = ({ children }) => {
     return {
       headers: {
         ...headers,
-        authorization: token ? `Bearer ${token}` : "",
+        authorization: token ? `Bearer ${token}` : '',
       }
-    }
+    };
   });
 
   const client = new ApolloClient({
     link: authLink.concat(httpLink),
-    uri: "http://localhost:5001/graphql",
+    uri: 'http://localhost:5001/graphql',
     cache: new InMemoryCache({
-        addTypename: false,
+      addTypename: false,
     }),
   });
 

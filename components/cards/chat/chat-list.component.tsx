@@ -15,8 +15,12 @@ const ChatList: React.FC<IChatListProps> = ({
     return (
       <div className={'grid grid-cols-5 my-4'} style={{ height: '40px' }}>
         {
-          users.map((u) => (
-            <img src={u.user.imageUrl} className={'h-full inset-0 m-auto self-center object-cover rounded-full'} />
+          users.map((u, i) => (
+            <img
+              key={`chatlistimage${i}`}
+              src={u.user.imageUrl}
+              className={'h-full inset-0 m-auto self-center object-cover rounded-full'}
+            />
           ))
         }
       </div>
@@ -24,8 +28,9 @@ const ChatList: React.FC<IChatListProps> = ({
   };
 
   const getUserChats = () => {
-    return chats.map(({ name, id, userChats }) => (
+    return chats.map(({ name, id, userChats }, i) => (
       <div
+        key={`userchats${i}`}
         className={'flex flex-col p-4 w-2/3 my-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background cursor-pointer'}
         onClick={() => router.push(RouterEnums.CHAT.replace('{slug}', `${id}`))}
       >

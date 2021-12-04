@@ -30,6 +30,7 @@ const AddSkillCard: React.FC<IAddSkillCardProps> = ({
           selectedItem={skill}
         />
         <TextInput
+          onEnterSubmit={() => undefined}
           onChange={(newYearsExp: string) => setYearsExp(+newYearsExp)}
           type={'number'}
           value={`${yearsExp}`}

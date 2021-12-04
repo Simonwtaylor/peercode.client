@@ -18,7 +18,7 @@ export default handleAuth({
           },
           body: JSON.stringify(user),
         },
-      )
+      );
 
     } catch (error) {
       console.log(error);
