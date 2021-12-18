@@ -81,15 +81,6 @@ const Sidebar: React.FC = () => {
           </div>
         </li>
         <li
-          onClick={() => handleNavigation(RouterEnums.ARTICLES)}
-          className={'cursor-pointer'}
-        >
-          <div className={`${activePage === RouterEnums.ARTICLES && 'bg-gray-200'} flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:bg-gray-200 focus:shadow-outline`}>
-            <VscPreview className="text-gray-600 ml-1" />
-            <span>Articles</span>
-          </div>
-        </li>
-        <li
           onClick={() => handleNavigation(RouterEnums.SETTINGS)}
           className={'cursor-pointer'}
         >

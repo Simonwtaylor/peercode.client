@@ -11,8 +11,8 @@ const UserSearch: React.FC<IUserSearchProps> = ({ value, onTextChange }) => {
       <input
         className="focus:border-light-blue-500 focus:ring-1 focus:ring-light-blue-500 focus:outline-none w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-2 pl-10"
         type="text"
-        aria-label="Search for Users, Skills or Projects"
-        placeholder="Search for Users, Skills or Projects"
+        aria-label="Search for Users by their username"
+        placeholder="Search for Users by their username"
         value={value ?? ''}
         onChange={(e) => onTextChange(e.currentTarget.value)}
       />

@@ -37,6 +37,7 @@ const UserSearchContainer: React.FC = () => {
                 setRefresh(!refresh);
               }
             }}
+            resetOnSelect={true}
           />
         </div>
       </div>

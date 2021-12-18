@@ -52,7 +52,7 @@ const ContractSessionsList: React.FC<IContractSessionsListProps> = ({
             <div className={'text-xl font-bold my-2'}>
               Sessions
 
-              {signed && <VscAdd className={'inline float-right cursor-pointer'} onClick={() => setAddNew(true)} />}
+              <VscAdd className={'inline float-right cursor-pointer'} onClick={() => setAddNew(true)} />
             </div>
             <div className={'text-base'}>
             </div>
@@ -61,7 +61,7 @@ const ContractSessionsList: React.FC<IContractSessionsListProps> = ({
       </div>
       {
         (expanded && 
-          <div className={'grid grid-cols-2 gap-2 w-2/3 my-1 rounded overflow-hidden text-white p-2'}>
+          <div className={'grid grid-cols-2 gap-2 w-2/3 my-1 rounded overflow-hidden text-white'}>
             {getSessionCards()}
           </div>
         )
