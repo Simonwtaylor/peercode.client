@@ -62,3 +62,22 @@ query searchUsers ($searchUsersInput: SearchUsersModel!) {
   }
 }
 `;
+
+export const getUserByUidQuery = gql`
+query userByUid ($uid: String!) {
+  userByUid (uid: $uid) {
+    id
+    username
+    email
+    role
+    bio
+    github
+    twitter
+    website
+    mentor
+    uid
+    imageUrl
+    discordId
+  }
+}
+`;

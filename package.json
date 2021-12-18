@@ -1,6 +1,6 @@
 {
   "name": "peercode.client",
-  "version": "0.5.10",
+  "version": "0.7.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.4.16",
+    "@auth0/nextjs-auth0": "^1.6.1",
     "dayjs": "^1.10.7",
     "graphql": "^15.6.1",
     "next": "^12.0.1",

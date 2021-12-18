@@ -15,7 +15,7 @@ const UserList: React.FC<IUserListProps> = ({
     <div
       className={'w-full grid grid-cols-2 gap-x-4'}
     >
-      {users.map(({ id, username, email, role }) => {
+      {users.map(({ id, username, email, role, imageUrl, github, twitter, website }) => {
         return (
           <div
             key={`userlistitem${id}`}
@@ -27,7 +27,7 @@ const UserList: React.FC<IUserListProps> = ({
                 <div className={'flex'}>
                   <div className="flex-none w-2/12 relative">
                     <img
-                      src={'https://lh3.googleusercontent.com/ogw/ADea4I6VLmj2JDCRaAILO3eM5-cHw-4PbQZkJMCwTj6a=s64-c-mo'}
+                      src={imageUrl}
                       alt=""
                       className="absolute inset-0 m-auto self-center object-cover rounded-full"
                       height="75"
@@ -54,9 +54,9 @@ const UserList: React.FC<IUserListProps> = ({
                   <span className={'text-base inline'}>{role}</span>
                 </div>
                 <div className={'flex flex-row w-1/3 float-right justify-end text-right'}>
-                  <VscGithubAlt className="float-right text-white" />
-                  <VscGlobe className="float-right text-white" />
-                  <VscTwitter className="float-right text-white" /> 
+                  {github && <VscGithubAlt className="float-right text-white" />}
+                  {website && <VscGlobe className="float-right text-white" />}
+                  {twitter && <VscTwitter className="float-right text-white" />}
                 </div>
               </div>
             </div>            

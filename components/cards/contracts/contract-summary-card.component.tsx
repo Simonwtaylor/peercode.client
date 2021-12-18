@@ -186,10 +186,10 @@ const ContractSummaryCard: React.FC<IContractSummaryCardProps> = ({
       return (
         <div className={'grid grid-cols-2 p-4'}>
           <div className={'w-11/12 my-2'}>
-            <TextInput onChange={setEditName} value={editName} label={'Name'} />
+            <TextInput onEnterSubmit={() => undefined}onChange={setEditName} value={editName} label={'Name'} />
           </div>
           <div className={'w-11/12 my-2'}>
-            <TextInput onChange={setEditDescription} value={editDescription} label={'Description'} />
+            <TextInput onEnterSubmit={() => undefined} onChange={setEditDescription} value={editDescription} label={'Description'} />
           </div>
           <div className={'w-11/12 my-2'}>
             <DatePickerInput date={editStartDate} onDatePickerChange={handleStartDateChange} label={'Start Date'} />

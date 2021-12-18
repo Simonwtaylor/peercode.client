@@ -1,5 +1,5 @@
 import { useMutation } from '@apollo/client';
-import React from 'react'
+import React from 'react';
 import { createMessageMutation, getChatQuery } from '../../../lib';
 import AddMessage from './add-message.component';
  
@@ -24,7 +24,7 @@ const AddMessageContainer: React.FC<IAddMessageContainerProps> = ({
         },
       },
       refetchQueries: [getChatQuery],
-    })
+    });
   };
 
   return (

@@ -43,10 +43,10 @@ const CreateContract: React.FC<ICreateContractProps> = ({
         </div>
         <div className={'grid grid-cols-2 p-4 my-1'}>
           <div className={'w-11/12 my-2'}>
-            <TextInput onChange={setName} value={name} label={'Name'} />
+            <TextInput onEnterSubmit={() => undefined} onChange={setName} value={name} label={'Name'} />
           </div>
           <div className={'w-11/12 my-2'}>
-            <TextInput onChange={setDescription} value={description} label={'Description'} />
+            <TextInput onEnterSubmit={() => undefined} onChange={setDescription} value={description} label={'Description'} />
           </div>
           <div className={'w-11/12 my-2'}>
             <DatePickerInput date={startDate} onDatePickerChange={setStartDate} label={'Start Date'} />

@@ -2,16 +2,26 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { NavContextProvider } from '../lib';
 import React from 'react';
-import { ApolloProvider } from '@apollo/client';
-import client from '../apollo-client';
+import { UserProvider } from '@auth0/nextjs-auth0';
+import { TokenContextProvider } from '../lib/contexts/token.context';
+import WithApollo from '../components/hoc/with-apollo.component';
+import { UserContextProvider } from '../lib/contexts/user.context';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ApolloProvider client={client}>
-      <NavContextProvider>
-        <Component {...pageProps} />
-      </NavContextProvider>
-    </ApolloProvider>
+    <UserProvider>
+      <TokenContextProvider>
+        {/* <ApolloProvider client={client}> */}
+        <WithApollo>
+          <UserContextProvider>
+            <NavContextProvider>
+              <Component {...pageProps} />
+            </NavContextProvider>
+          </UserContextProvider>
+        </WithApollo>
+        {/* </ApolloProvider> */}
+      </TokenContextProvider>
+    </UserProvider>
   );
 }
 export default MyApp;

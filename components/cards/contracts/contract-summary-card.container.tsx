@@ -8,7 +8,7 @@ import {
   IContract,
   IContractResponse,
   IUserContract,
-  NavContext,
+  UserContext,
   signContractMutation,
   updateContractMutation,
 } from '../../../lib';
@@ -24,7 +24,7 @@ const ContractSummaryCardContainer: React.FC<IContractSummaryCardContainer> = ({
   currentUser,
 }) => {
   const router = useRouter();
-  const { userId } = useContext(NavContext);
+  const { user } = useContext(UserContext);
   const { data, loading, error } = useQuery<IContractResponse>(getContractQuery, {
     variables: {
       id: contractId,
@@ -51,7 +51,7 @@ const ContractSummaryCardContainer: React.FC<IContractSummaryCardContainer> = ({
           updateContractInput: {
             ...rest,
             statusId: data?.contract.status.id,
-            userId,
+            userId: user.id,
           },
         },
         refetchQueries: [getContractQuery, getContractHistoryQuery],

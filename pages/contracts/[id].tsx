@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { VscCloudUpload } from 'react-icons/vsc';
 import client from '../../apollo-client';
 import { ContractSessionList, ContractSummaryCardContainer, Layout, ContractHistoryContainer } from '../../components/';
-import { getContractUsersQuery, IUserContract, NavContext } from '../../lib';
+import { getContractUsersQuery, IUserContract, UserContext } from '../../lib';
 
 interface IContractPageProps {
   users?: IUserContract[];
@@ -12,10 +12,10 @@ interface IContractPageProps {
 const ContractPage: React.FC<IContractPageProps> = ({
   users,
 }) => {
-  const { userId } = useContext(NavContext);
+  const { user } = useContext(UserContext);
   const router = useRouter();
   const id = +(router.query?.id as string ?? '') ?? 0;
-  const currentUser = users?.find(a => a.userId === userId);
+  const currentUser = users?.find(a => a.userId === user.id);
 
   return (
     <Layout>
@@ -30,19 +30,6 @@ const ContractPage: React.FC<IContractPageProps> = ({
               <div className={'text-xl font-bold my-2'}>
                 Comments
 
-              </div>
-              <div className={'text-base'}>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={'flex w-2/3 my-4 rounded overflow-hidden shadow-lg text-white card-dark-lighter-background'}>
-          <div className={'flex-auto p-4'}>
-            <div className={'my-1'}>
-              <div className={'text-xl font-bold my-2'}>
-                Files & Attachments
-
-                <VscCloudUpload className={'inline float-right cursor-pointer'} onClick={() => console.log('add')} />
               </div>
               <div className={'text-base'}>
               </div>

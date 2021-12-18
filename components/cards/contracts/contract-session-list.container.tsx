@@ -9,12 +9,14 @@ export interface IContractSessionsListProps {
   contractId: number;
   clickable: boolean;
   users?: IUserContract[];
+  signed?: boolean;
 }
  
 const ContractSessionsList: React.FC<IContractSessionsListProps> = ({
   contractId,
   clickable,
   users,
+  signed,
 }) => {
   const [expanded, setExpanded] = useState(true);
   const [addNew, setAddNew] = useState(false);
@@ -59,7 +61,7 @@ const ContractSessionsList: React.FC<IContractSessionsListProps> = ({
       </div>
       {
         (expanded && 
-          <div className={'grid grid-cols-2 gap-2 w-2/3 my-1 rounded overflow-hidden text-white p-2'}>
+          <div className={'grid grid-cols-2 gap-2 w-2/3 my-1 rounded overflow-hidden text-white'}>
             {getSessionCards()}
           </div>
         )

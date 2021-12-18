@@ -7,7 +7,7 @@ export interface IContractHistoryProps {
 }
  
 const ContractHistory: React.FC<IContractHistoryProps> = ({ contractHistories }) => {
-  const [minimised, setMinised] = useState(false);
+  const [minimised, setMinised] = useState(true);
 
   const getBody = () => {
     if (minimised) {
